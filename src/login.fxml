@@ -12,10 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F0FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #F0FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenecontroller">
    <center>
-      <AnchorPane prefHeight="336.0" prefWidth="320.0" style="-fx-background-color: #D3D3D3;" BorderPane.alignment="TOP_CENTER">
+      <AnchorPane prefHeight="560.0" prefWidth="855.0" style="-fx-background-color: #D3D3D3;" BorderPane.alignment="TOP_CENTER">
          <padding>
             <Insets top="1.0" />
          </padding>
@@ -39,7 +38,7 @@
                      </font>
                   </Text>
                   <TextField layoutX="165.0" layoutY="57.0" prefHeight="25.0" prefWidth="198.0" promptText=" Username " />
-                  <Button layoutX="168.0" layoutY="154.0" mnemonicParsing="false" text="Sign in" textFill="#2f0d15" underline="true" wrapText="true">
+                  <Button layoutX="168.0" layoutY="154.0" mnemonicParsing="false" onAction="#switchToGUI" text="Sign in" textFill="#2f0d15" underline="true" wrapText="true">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
@@ -64,7 +63,7 @@
                <children>
                   <ImageView fitHeight="69.0" fitWidth="114.0" layoutX="138.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../AppData/Local/Temp/Rar$DRa0.887/books.png" />
+                        <Image url="@asset/books.png" />
                      </image>
                   </ImageView>
                </children>

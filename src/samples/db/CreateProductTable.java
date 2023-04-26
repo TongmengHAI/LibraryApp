@@ -16,7 +16,12 @@ public class CreateProductTable {
                 (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     name TEXT,
-                    price DECIMAL
+                    detail BLOB,
+                    author TEXT,
+                    public TEXT,
+                    type TEXT,
+                    price DECIMAL,
+                    quantity INTEGER
                 )
             """);
         } catch (Exception e) {

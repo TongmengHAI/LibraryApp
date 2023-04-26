@@ -2,25 +2,59 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenecontroller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenecontroller">
    <children>
-      <Label layoutX="238.0" layoutY="49.0" prefHeight="35.0" prefWidth="124.0" text="Library GUI">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Button alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" layoutX="250.0" layoutY="299.0" mnemonicParsing="false" onAction="#switchToLogin" text="back to login">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Button contentDisplay="CENTER" layoutX="53.0" layoutY="112.0" mnemonicParsing="false" onAction="#switchToListbook" text="List Book">
-         <font>
-            <Font name="Arial" size="18.0" />
-         </font>
-      </Button>
+      <Pane layoutX="-1.0" layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="119.0" prefWidth="1080.0" AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="345.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@asset/books.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="483.0" layoutY="31.0" text="Library">
+               <font>
+                  <Font name="Arial Bold" size="70.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <SplitPane dividerPositions="0.193207126948775" layoutY="146.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="574.0" prefWidth="1080.0" AnchorPane.bottomAnchor="-0.39999999999997726" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="146.0">
+        <items>
+          <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="561.0" prefWidth="206.0" style="-fx-border-color: #000000;">
+               <children>
+                  <VBox layoutX="17.0" layoutY="27.0" prefHeight="531.0" prefWidth="174.0" spacing="25.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="26.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="ADD Book" />
+                        <Button mnemonicParsing="false" onAction="#listbook" prefHeight="51.0" prefWidth="178.0" text="List Book" />
+                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Borrow Book" />
+                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Book Borrowing" />
+                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Make a Copy" />
+                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Update Book" />
+                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Issue Book" />
+                        <Button mnemonicParsing="false" onAction="#switchToLogin" prefHeight="51.0" prefWidth="178.0" text="Log Out" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="478.0" prefWidth="867.0">
+               <children>
+                  <Pane fx:id="ListbookUI" layoutX="1.0" layoutY="2.0" prefHeight="571.0" prefWidth="864.0">
+                     <children>
+                        <Label fx:id="WelcomeText" layoutX="160.0" layoutY="191.0" text="Welcome to Library App">
+                           <font>
+                              <Font name="Arial" size="45.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>
