@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch InsertData",
+            "request": "launch",
+            "mainClass": "samples.db.InsertData",
+            "projectName": "LibraryApp_8dbb9ba9"
+        },
+        {
+            "type": "java",
+            "name": "Launch CreateProductTable",
+            "request": "launch",
+            "mainClass": "samples.db.CreateProductTable",
+            "projectName": "LibraryApp_8dbb9ba9"
+        },
+        {
+            "type": "java",
             "name": "Launch App",
             "request": "launch",
             "mainClass": "App",
@@ -19,7 +33,6 @@
             "mainClass": "App",
             "projectName": "LibraryApp_20485068",
             "vmArgs": "--module-path ${workspaceFolder}/lib/javafx-sdk-20/lib --add-modules javafx.controls,javafx.fxml"
-
         },
         {
             "type": "java",
