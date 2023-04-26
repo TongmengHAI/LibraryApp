@@ -6,12 +6,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 import samples.db.ConnectDB;
+import samples.db.SelectData;
 
 public class scenecontroller {
     private Stage stage;
@@ -20,6 +25,7 @@ public class scenecontroller {
     @FXML 
     Pane ListbookUI;
     Label WelcomeText;
+    VBox Listdata;
     public void switchToLogin(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("login.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -35,11 +41,18 @@ public class scenecontroller {
         stage.show();
         //this is for connecting to the database, it will output in the console saying it connected succcesfully
         ConnectDB.main(null);
+        //add item to vbox
+        SelectData.main(null);
+        
     }
     public void listbook(ActionEvent event)throws IOException{
         Pane newloadedPane = FXMLLoader.load(getClass().getResource("listbook.fxml"));
         ListbookUI.getChildren().clear();
         ListbookUI.getChildren().add(newloadedPane);
+
+        // HBox hbox = new HBox();
+        // hbox.getChildren().addAll(new Label("hello"),new Label("hello"));
+        // Listdata.getChildren().add(hbox);
         
     }
     
