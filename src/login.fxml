@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenecontroller">
    <children>
       <Label contentDisplay="TOP" layoutX="196.0" layoutY="119.0" prefHeight="46.0" prefWidth="231.0" text="test login button">
@@ -13,7 +12,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Button fx:id="LoginButton" layoutX="273.0" layoutY="211.0" mnemonicParsing="false" onAction="#switchToGUI" text="Login">
+      <Button layoutX="273.0" layoutY="211.0" mnemonicParsing="false" onAction="#switchToGUI" text="Login">
          <font>
             <Font size="14.0" />
          </font>
