@@ -6,6 +6,7 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "ConnectDB",
             "request": "launch",
             "mainClass": "samples.db.ConnectDB",
@@ -17,6 +18,19 @@
             "request": "launch",
             "mainClass": "samples.db.CreateProductTable",
             "projectName": "LibraryApp_138905b7"
+=======
+            "name": "Launch InsertData",
+            "request": "launch",
+            "mainClass": "samples.db.InsertData",
+            "projectName": "LibraryApp_8dbb9ba9"
+        },
+        {
+            "type": "java",
+            "name": "Launch CreateProductTable",
+            "request": "launch",
+            "mainClass": "samples.db.CreateProductTable",
+            "projectName": "LibraryApp_8dbb9ba9"
+>>>>>>> 0c51d2527d0b662ae9e712e27b48d33275a87102
         },
         {
             "type": "java",
