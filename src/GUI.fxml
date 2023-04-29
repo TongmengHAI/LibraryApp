@@ -35,7 +35,7 @@
                         <Button mnemonicParsing="false" onAction="#listbook" prefHeight="51.0" prefWidth="178.0" text="List Book" />
                         <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Borrow Book" />
                         <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Book Borrowing" />
-                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Make a Copy" />
+                        <Button mnemonicParsing="false" onAction="#makeCopiesList" prefHeight="51.0" prefWidth="178.0" text="Make a Copy" />
                         <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Update Book" />
                         <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Issue Book" />
                         <Button mnemonicParsing="false" onAction="#switchToLogin" prefHeight="51.0" prefWidth="178.0" text="Log Out" />
@@ -45,7 +45,7 @@
             </AnchorPane>
           <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="478.0" prefWidth="867.0">
                <children>
-                  <Pane fx:id="ListbookUI" layoutX="1.0" layoutY="2.0" prefHeight="571.0" prefWidth="864.0">
+                  <Pane fx:id="ListbookUI" layoutY="1.0" prefHeight="571.0" prefWidth="864.0">
                      <children>
                         <Label fx:id="WelcomeText" layoutX="160.0" layoutY="191.0" text="Welcome to Library App">
                            <font>
