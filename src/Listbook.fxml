@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="560.0" prefWidth="855.0" style="-fx-background-color: C6F4CA;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane focusTraversable="true" prefHeight="560.0" prefWidth="855.0" style="-fx-background-color: C6F4CA;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
    <children>
-      <Pane layoutY="15.0" prefHeight="62.0" prefWidth="856.0" style="-fx-background-color: #B4C640;">
+      <Pane layoutX="-4.0" layoutY="10.0" prefHeight="62.0" prefWidth="858.0" style="-fx-background-color: #B4C640;">
          <children>
             <Label layoutX="339.0" layoutY="17.0" text="View Book">
                <font>
@@ -43,26 +44,18 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <VBox fx:id="Listdata" layoutX="16.0" layoutY="131.0" prefHeight="421.0" prefWidth="855.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="131.0">
-         <children>
-            <HBox prefHeight="37.0" prefWidth="840.0">
-               <children>
-                  <Label prefHeight="50.0" prefWidth="100.0" text="ID" HBox.hgrow="ALWAYS">
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="50.0" prefWidth="100.0" text="Name">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-         </children></VBox>
+      <TableView fx:id="tableview" layoutX="14.0" layoutY="143.0" prefHeight="408.0" prefWidth="883.0" style="-fx-background-color: C6F4CA;" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-14.0">
+        <columns>
+          <TableColumn maxWidth="1.7976931348623157E308" prefWidth="58.39999467134476" text="No." />
+          <TableColumn fx:id="nameColumn" minWidth="1.600006103515625" prefWidth="319.20002365112305" text="Name" />
+            <TableColumn fx:id="priceColumn" minWidth="8.79998779296875" prefWidth="183.99993896484375" text="Price" />
+            <TableColumn fx:id="qntColumn" prefWidth="149.5999755859375" text="Quantity" />
+            <TableColumn fx:id="typeColumn" prefWidth="161.5999755859375" text="Type" />
+        </columns>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TableView>
    </children>
    <padding>
       <Insets right="15.0" />
