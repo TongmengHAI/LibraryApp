@@ -1,0 +1,15 @@
+.white-background{
+    -fx-background-color:#fff;
+}
+.transparent{
+    -fx-background-color:black;
+
+}
+.round-layout{
+    -fx-border-radius:50;
+    -fx-border-color:gray;
+}
+.hover:hover{
+    -fx-background-color: #078D1478;
+    
+}

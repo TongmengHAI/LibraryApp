@@ -6,9 +6,12 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -17,6 +20,22 @@
       <Insets />
    </opaqueInsets>
    <children>
+      <HBox alignment="CENTER" layoutX="11.0" layoutY="81.0" prefHeight="28.0" prefWidth="301.0" style="-fx-background-color: #C6F4CA;" styleClass="round-layout" stylesheets="@script/css/makecopyStyle.css">
+         <children>
+            <TextField alignment="TOP_LEFT" opacity="0.5" prefHeight="25.0" prefWidth="255.0" promptText="Search by book name or id">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" top="10.0" />
+               </padding>
+            </TextField>
+            <Icon content="SEARCH" prefHeight="25.0" prefWidth="29.0" />
+         </children>
+      </HBox>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="835.0" style="-fx-background-color: #B4C640;">
          <children>
             <Text fill="#535151" layoutX="395.0" layoutY="35.0" lineSpacing="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make copies">
@@ -26,41 +45,151 @@
             </Text>
          </children>
       </Pane>
-      <TextField layoutX="10.0" layoutY="80.0" opacity="0.5" prefHeight="30.0" prefWidth="300.0" promptText="Search by book name or id" style="-fx-background-color: #FFFFFF;">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets left="10.0" top="10.0" />
-         </padding>
-      </TextField>
-      <Icon content="SEARCH" layoutX="288.0" layoutY="82.0" />
       <Text fill="#535151" layoutX="585.0" layoutY="98.0" lineSpacing="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort by:" textAlignment="CENTER">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <MenuButton layoutX="642.0" layoutY="80.0" mnemonicParsing="false" text="Select">
+      <MenuButton layoutX="642.0" layoutY="80.0" mnemonicParsing="false" styleClass="hover" stylesheets="@script/css/makecopyStyle.css" text="Select">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
       </MenuButton>
       <Text fill="#535151" layoutX="735.0" layoutY="100.0" lineSpacing="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type: " textAlignment="CENTER">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <MenuButton layoutX="772.0" layoutY="80.0" mnemonicParsing="false" text="Select">
+      <MenuButton layoutX="772.0" layoutY="80.0" mnemonicParsing="false" styleClass="hover" stylesheets="@script/css/makecopyStyle.css" text="Select">
          <items>
             <MenuItem mnemonicParsing="false" text="Action 1" />
             <MenuItem mnemonicParsing="false" text="Action 2" />
          </items>
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
       </MenuButton>
-      <ListView layoutX="10.0" layoutY="123.0" prefHeight="420.0" prefWidth="835.0" style="-fx-background-color: #E0FBE2;" />
+      <ListView layoutX="10.0" layoutY="164.0" prefHeight="380.0" prefWidth="835.0" style="-fx-background-color: #E0FBE2;" />
+      <HBox layoutX="10.0" layoutY="123.0" prefHeight="40.0" prefWidth="835.0" style="-fx-background-color: #078D1478;">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="300.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Book Name">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Author">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Public">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Copy">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="164.0" prefHeight="40.0" prefWidth="835.0" style="-fx-background-color: E0E3D2;">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="835.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="300.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="37.0" prefWidth="130.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="110.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="137.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="117.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </HBox>
+                  <Separator prefWidth="835.0" />
+               </children>
+            </VBox>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
