@@ -36,7 +36,7 @@
                         <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Borrow Book" />
                         <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Book Borrowing" />
                         <Button mnemonicParsing="false" onAction="#makeCopiesList" prefHeight="51.0" prefWidth="178.0" text="Make a Copy" />
-                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Update Book" />
+                        <Button mnemonicParsing="false" onAction="#makeCopyDetail" prefHeight="51.0" prefWidth="178.0" text="Update Book" />
                         <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Issue Book" />
                         <Button mnemonicParsing="false" onAction="#switchToLogin" prefHeight="51.0" prefWidth="178.0" text="Log Out" />
                      </children>

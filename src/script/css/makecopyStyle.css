@@ -1,0 +1,31 @@
+.white-background{
+    -fx-background-color:#fff;
+}
+
+.transparent{
+    -fx-background-color:black;
+
+}
+.round-layout{
+    -fx-border-radius:50;
+    -fx-border-color:gray;
+}
+.content-hover:hover{
+    -fx-background-color: #bcb1b177;
+    
+}
+.container-deatail-border_radius{
+    -fx-border-radius:20;
+    -fx-border-color:gray;
+    -fx-color: #cdebd0b4;
+
+
+}
+.btn-copy-color{
+    -fx-background-color:#FCB424;
+    -fx-border-color:gray;
+    -fx-border-radius:3;
+}
+.btn-copy-color:hover{
+    -fx-background-color:#f2d498;
+}

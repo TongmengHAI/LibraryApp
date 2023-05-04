@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
@@ -34,6 +35,8 @@ public class scenecontroller implements Initializable {
     Pane listbook;
     @FXML
     AnchorPane table = new AnchorPane();
+    @FXML
+    Button backButton = new Button();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         
@@ -63,16 +66,26 @@ public class scenecontroller implements Initializable {
         //table = FXMLLoader.load(getClass().getResource("table.fxml"));
         //newloadedPane.getChildren().add(table);
         
-
         ListbookUI.getChildren().clear();
         ListbookUI.getChildren().add(newloadedPane);
+        AnchorPane newpane = new AnchorPane();
+        newpane = FXMLLoader.load(getClass().getResource("table.fxml"));
+        table.getChildren().add(newpane);
         
 
     }
     @FXML
-    public void makeCopiesList(ActionEvent event)throws IOException{
-        Pane newloadedPane = FXMLLoader.load(getClass().getResource("makeCopy.fxml"));
+    public void makeCopiesList(ActionEvent event)throws IOException{//make a copy
+        Pane newloadedPane = FXMLLoader.load(getClass().getResource("makecopylist.fxml"));
         ListbookUI.getChildren().clear();
         ListbookUI.getChildren().add(newloadedPane);
+        System.out.println("hi");
+        
+    }
+    public void makeCopyDetail(ActionEvent event)throws IOException{//update book
+        Pane newloadedPane = FXMLLoader.load(getClass().getResource("makecopydetail.fxml"));
+        ListbookUI.getChildren().clear();
+        ListbookUI.getChildren().add(newloadedPane);
+        
     }
 }
