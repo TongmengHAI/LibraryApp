@@ -52,7 +52,13 @@ public class scenecontroller {
     }
     
     public void makeCopiesList(ActionEvent event)throws IOException{
-        Pane newloadedPane = FXMLLoader.load(getClass().getResource("makecopy.fxml"));
+        Pane newloadedPane = FXMLLoader.load(getClass().getResource("makecopylist.fxml"));
+        ListbookUI.getChildren().clear();
+        ListbookUI.getChildren().add(newloadedPane);
+        
+    }
+    public void makeCopyDetail(ActionEvent event)throws IOException{
+        Pane newloadedPane = FXMLLoader.load(getClass().getResource("makecopydetail.fxml"));
         ListbookUI.getChildren().clear();
         ListbookUI.getChildren().add(newloadedPane);
         

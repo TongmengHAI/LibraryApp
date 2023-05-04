@@ -16,15 +16,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane accessibleRole="TEXT_FIELD" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="855.0" style="-fx-background-color: #C6F4CA;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane accessibleRole="TEXT_FIELD" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="855.0" style="-fx-background-color: #C6F4CA;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenecontroller">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
    <children>
       <HBox alignment="CENTER" layoutX="11.0" layoutY="81.0" prefHeight="28.0" prefWidth="301.0" style="-fx-background-color: #C6F4CA;" styleClass="round-layout" stylesheets="@script/css/makecopyStyle.css">
          <children>
-            <TextField prefHeight="17.0" prefWidth="253.0" />
-            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+            <TextField prefHeight="17.0" prefWidth="253.0" style="-fx-background-color: #C6F4CA;" />
+            <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@asset/search-regular-icon.png" />
                </image>
@@ -45,7 +45,7 @@
             <Font size="13.0" />
          </font>
       </Text>
-      <MenuButton layoutX="642.0" layoutY="80.0" mnemonicParsing="false" styleClass="hover" stylesheets="@script/css/makecopyStyle.css" text="Select">
+      <MenuButton layoutX="642.0" layoutY="80.0" mnemonicParsing="false" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Select">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -59,7 +59,7 @@
             <Font size="13.0" />
          </font>
       </Text>
-      <MenuButton layoutX="772.0" layoutY="80.0" mnemonicParsing="false" styleClass="hover" stylesheets="@script/css/makecopyStyle.css" text="Select">
+      <MenuButton layoutX="772.0" layoutY="80.0" mnemonicParsing="false" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Select">
          <items>
             <MenuItem mnemonicParsing="false" text="Action 1" />
             <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -121,22 +121,25 @@
             </VBox>
          </children>
       </HBox>
-      <HBox layoutX="10.0" layoutY="164.0" prefHeight="40.0" prefWidth="835.0" style="-fx-background-color: E0E3D2;">
+      <HBox layoutX="10.0" layoutY="164.0" onMouseClicked="#switchToGUI" prefHeight="40.0" prefWidth="835.0" style="-fx-background-color: E0E3D2;" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css">
          <children>
-            <VBox prefHeight="200.0" prefWidth="835.0">
+            <VBox prefHeight="200.0" prefWidth="835.0" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="300.0">
+                        <VBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="300.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="C programming language" textAlignment="CENTER">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Text>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
-                        <VBox prefHeight="37.0" prefWidth="130.0">
+                        <VBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="130.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0">
                                  <font>
@@ -144,8 +147,11 @@
                                  </font>
                               </Text>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="110.0">
+                        <VBox alignment="CENTER" prefHeight="37.0" prefWidth="110.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0">
                                  <font>
@@ -153,8 +159,11 @@
                                  </font>
                               </Text>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="137.0">
+                        <VBox alignment="CENTER" prefHeight="37.0" prefWidth="137.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0">
                                  <font>
@@ -162,8 +171,11 @@
                                  </font>
                               </Text>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="117.0">
+                        <VBox alignment="CENTER" prefHeight="37.0" prefWidth="117.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0">
                                  <font>
@@ -171,6 +183,9 @@
                                  </font>
                               </Text>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
                      </children>
                      <padding>
