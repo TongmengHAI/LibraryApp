@@ -43,16 +43,13 @@
                   </VBox>
                </children>
             </AnchorPane>
-          <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="478.0" prefWidth="867.0">
+          <AnchorPane fx:id="ListbookUI" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="478.0" prefWidth="867.0" SplitPane.resizableWithParent="false">
                <children>
-                  <Pane fx:id="ListbookUI" layoutY="1.0" prefHeight="571.0" prefWidth="864.0">
-                     <children>
-                        <Label fx:id="WelcomeText" layoutX="160.0" layoutY="191.0" text="Welcome to Library App">
-                           <font>
-                              <Font name="Arial" size="45.0" />
-                           </font>
-                        </Label>
-                     </children></Pane>
+                  <Label fx:id="WelcomeText" layoutX="188.0" layoutY="227.0" text="Welcome to Library App">
+                     <font>
+                        <Font name="Arial" size="45.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
         </items>
       </SplitPane>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Icon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ListView?>
@@ -12,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane accessibleRole="TEXT_FIELD" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="855.0" style="-fx-background-color: #C6F4CA;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane accessibleRole="TEXT_FIELD" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="855.0" style="-fx-background-color: #C6F4CA;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenecontroller">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
@@ -37,7 +36,6 @@
             <Insets left="10.0" top="10.0" />
          </padding>
       </TextField>
-      <Icon content="SEARCH" layoutX="288.0" layoutY="82.0" />
       <Text fill="#535151" layoutX="585.0" layoutY="98.0" lineSpacing="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort by:" textAlignment="CENTER">
          <font>
             <Font size="13.0" />
