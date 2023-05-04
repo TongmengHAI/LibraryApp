@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Icon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ListView?>
@@ -8,6 +7,8 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -22,18 +23,12 @@
    <children>
       <HBox alignment="CENTER" layoutX="11.0" layoutY="81.0" prefHeight="28.0" prefWidth="301.0" style="-fx-background-color: #C6F4CA;" styleClass="round-layout" stylesheets="@script/css/makecopyStyle.css">
          <children>
-            <TextField alignment="TOP_LEFT" opacity="0.5" prefHeight="25.0" prefWidth="255.0" promptText="Search by book name or id">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="10.0" top="10.0" />
-               </padding>
-            </TextField>
-            <Icon content="SEARCH" prefHeight="25.0" prefWidth="29.0" />
+            <TextField prefHeight="17.0" prefWidth="253.0" />
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@asset/search-regular-icon.png" />
+               </image>
+            </ImageView>
          </children>
       </HBox>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="835.0" style="-fx-background-color: #B4C640;">
