@@ -60,14 +60,13 @@ public class scenecontroller implements Initializable {
     @FXML
     public void listbook(ActionEvent event)throws IOException{
         AnchorPane newloadedPane = FXMLLoader.load(getClass().getResource("listbook.fxml"));
-        //AnchorPane tab = FXMLLoader.load(getClass().getResource("table.fxml"));
-        table = FXMLLoader.load(getClass().getResource("table.fxml"));
-        newloadedPane.getChildren().add(table);
-        //table.getChildren().add(tab);
+        //table = FXMLLoader.load(getClass().getResource("table.fxml"));
+        //newloadedPane.getChildren().add(table);
+        
+
         ListbookUI.getChildren().clear();
         ListbookUI.getChildren().add(newloadedPane);
         
-        //ListbookUI.requestLayout();
 
     }
     @FXML
