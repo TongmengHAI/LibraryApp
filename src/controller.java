@@ -30,33 +30,40 @@ public class controller implements Initializable {
     @FXML
     private TableColumn<Book,String> nameColumn = new TableColumn<Book,String>();
     @FXML
+    private TableColumn<Book,Integer> idColumn = new TableColumn<Book,Integer>();
+    @FXML
     private TableColumn<Book,Double> priceColumn = new TableColumn<Book,Double>();
     @FXML
     private TableColumn<Book,Integer> qntColumn = new TableColumn<Book,Integer>();
     @FXML
     private TableColumn <Book,String> typeColumn = new TableColumn <Book,String>();
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle){//initialize the table value
+        idColumn.setCellValueFactory(new PropertyValueFactory<Book,Integer>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("name"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<Book, Double>("price"));
         qntColumn.setCellValueFactory(new PropertyValueFactory<Book, Integer>("qnt"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("type"));
+        try{
+            autolistbook();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        
     }
-    public void test(ActionEvent event)throws IOException{
+    public void autolistbook()throws IOException{
         try(ResultSet rs = ConnectDB.getConnection().execute("SELECT * FROM products")){
             while(rs.next()){
-                listbook(rs.getString(2), rs.getDouble(7), rs.getInt(8), rs.getString(6));
+                addbookTotable(rs.getInt(1) ,rs.getString(2), rs.getDouble(7), rs.getInt(8), rs.getString(6));
             }
         }
         catch(Exception ex){
             ex.printStackTrace();
         }
     }
-    public void listbook(String n,Double p,int q,String t)throws IOException{
-        
-        //FXMLLoader loader = new FXMLLoader(getClass().getResource("listbook.fxml"));
+    public void addbookTotable(int id,String n,Double p,int q,String t)throws IOException{
         ObservableList<Book> books = tableview.getItems();
-        Book newbook = new Book(n,p,q,t);
+        Book newbook = new Book(id,n,p,q,t);
         tableview.getItems().add(newbook);
         tableview.setItems(books);
     }

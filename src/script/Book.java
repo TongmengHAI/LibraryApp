@@ -1,15 +1,23 @@
 package script;
 
 public class Book {
+    private int id;
     private String name;
     private double price;
     private int qnt;
     private String type;
-    public Book(String n, double p,int q,String t){
+    public Book(int id,String n, double p,int q,String t){
+        this.id = id;
         this.name = n;
         this.price = p;
         this.qnt=q;
         this.type = t;
+    }
+    public int getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id=id;
     }
     public String getName(){
         return name;
