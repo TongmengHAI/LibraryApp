@@ -4,6 +4,7 @@ import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,6 +21,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import java.net.URL;
+import java.security.spec.ECField;
 import java.util.ResourceBundle;
 
 import samples.db.ConnectDB;
@@ -79,8 +81,7 @@ public class controller implements Initializable {
                     }
                 }
             }
-        });
-        
+        });  
     }
     public void autolistbook()throws IOException{
         try(ResultSet rs = ConnectDB.getConnection().execute("SELECT * FROM products")){
@@ -98,4 +99,62 @@ public class controller implements Initializable {
         tableview.getItems().add(newbook);
         tableview.setItems(books);
     }
+    
+
+    // list book
+    public void listbook(Event event)throws IOException{
+        root = FXMLLoader.load(getClass().getResource("listbook.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    // make copy book
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    public void makeCopyList(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("copyBookList.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void makeCopyDetail(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("copyBookDetail.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    // borrow book form
+    public void borrowBook(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("borrowBook.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    // book borrowing 
+    public void bookBorrowingList(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("borrowingList.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void bookBorrowingDetail(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("returnBook.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+
 }

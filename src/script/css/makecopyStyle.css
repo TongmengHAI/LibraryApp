@@ -29,3 +29,9 @@
 .btn-copy-color:hover{
     -fx-background-color:#f2d498;
 }
+.sideBar_background{
+    -fx-background-color: #076010;
+}
+.sideBar_hover:hover{
+    -fx-background-color: #078D14;
+}

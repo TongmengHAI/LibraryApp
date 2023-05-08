@@ -42,21 +42,21 @@
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font></Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" style="-fx-background-color: #076010;" text="Borrow Book" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#borrowBook" prefHeight="51.0" prefWidth="178.0" style="-fx-background-color: #076010;" text="Borrow Book" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" style="-fx-background-color: #076010;" text="Book Borrowing" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#bookBorrowingList" prefHeight="51.0" prefWidth="178.0" style="-fx-background-color: #076010;" text="Book Borrowing" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" style="-fx-background-color: #076010;" text="Make a Copy" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#makeCopyList" prefHeight="51.0" prefWidth="178.0" style="-fx-background-color: #076010;" text="Make a Copy" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font></Button>
