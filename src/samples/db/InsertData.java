@@ -1,16 +1,23 @@
 package samples.db;
+import java.sql. *;
+import java.sql.PreparedStatement;
 
 public class InsertData {
-    public static void main(String[] args) {
-        CreateProductTable.main(args);
-        try (ConnectDB conn = ConnectDB.getConnection();) {
-            int ret = conn.executeUpdate("INSERT INTO products(name,detail,author,public,type,price,quantity) VALUES(?,?,?,?,?,?,?)", "Grape book","goodbook","chhit",12,"horror",5.50,3);
-            System.out.println(ret);
-            ret = conn.executeUpdate("INSERT INTO products(name,detail,author,public,type,price,quantity) VALUES(?,?,?,?,?,?,?)", "Banana book","goodbook1","mengtong",11,"scifi",90.5,2);
-            System.out.println(ret);
+    public void insert(String a,String b,String c,String d,String e,Double f,int g) {
+        String sql = "INSERT INTO products(name,detail,author,public,type,price,quantity) VALUES(?,?,?,?,?,?,?)";
+        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db");
+        PreparedStatement pst = conn.prepareStatement(sql)){
+            pst.setString(1,a);
+            pst.setString(2,b);
+            pst.setString(3,c);
+            pst.setString(4,d);
+            pst.setString(5,e);
+            pst.setDouble(6,f);
+            pst.setInt(7, g);
+            pst.executeUpdate();
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        }catch(Exception ex){
+            ex.printStackTrace();
         }
     }
 }
