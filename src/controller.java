@@ -147,8 +147,18 @@ public class controller implements Initializable {
         stage.show();
     }
 
+    // return book
     public void bookBorrowingDetail(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("returnBook.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    // Add book
+    public void addBook(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("addBook.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

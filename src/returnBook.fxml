@@ -33,7 +33,7 @@
       </AnchorPane>
       <VBox alignment="CENTER" layoutY="141.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="574.0" prefWidth="194.0" spacing="25.0" style="-fx-border-color: black; -fx-padding: 5;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="141.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="ADD Book" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+            <Button mnemonicParsing="false" onAction="#addBook" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="ADD Book" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -133,7 +133,7 @@
                      </font>
                   </Text>
                </children></AnchorPane>
-            <VBox layoutX="14.0" layoutY="75.0" prefHeight="488.0" prefWidth="834.0">
+            <VBox layoutX="14.0" layoutY="75.0" prefHeight="488.0" prefWidth="834.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="75.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="369.0" prefWidth="834.0">
                      <children>
@@ -281,12 +281,15 @@
                   </HBox>
                   <VBox alignment="CENTER" prefHeight="25.0" prefWidth="834.0">
                      <children>
-                        <Line endX="100.0" startX="-615.4518432617188" startY="-0.4552093744277954" />
+                        <Line endX="100.0" startX="-615.4518432617188" startY="-0.4552093744277954">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Line>
                      </children>
                   </VBox>
                   <VBox prefHeight="111.0" prefWidth="834.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="832.0">
                            <children>
                               <Button cancelButton="true" mnemonicParsing="false" onAction="#bookBorrowingList" prefHeight="32.0" prefWidth="66.0" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Back">
                                  <font>

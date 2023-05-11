@@ -3,7 +3,7 @@ import java.sql. *;
 import java.sql.PreparedStatement;
 
 public class InsertData {
-    public void insert(String a,String b,String c,String d,String e,Double f,int g) {
+     public static void insert(String a,String b,String c,String d,String e,Double f,int g) {
         String sql = "INSERT INTO products(name,detail,author,public,type,price,quantity) VALUES(?,?,?,?,?,?,?)";
         try(Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db");
         PreparedStatement pst = conn.prepareStatement(sql)){
@@ -19,5 +19,9 @@ public class InsertData {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+        
+    }
+    public static void main(String[] args) {
+        insert("cat", "aaa", "tom", "1000", "manga", 12.3, 1);
     }
 }

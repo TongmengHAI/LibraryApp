@@ -34,7 +34,7 @@
       </AnchorPane>
       <VBox alignment="CENTER" layoutY="141.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="574.0" prefWidth="194.0" spacing="25.0" style="-fx-border-color: black; -fx-padding: 5;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="141.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="ADD Book" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+            <Button mnemonicParsing="false" onAction="#addBook" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="ADD Book" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
