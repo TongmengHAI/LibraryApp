@@ -1,4 +1,5 @@
 
+import java.io.File;
 import java.io.IOException;
 
 import javafx.collections.FXCollections;
@@ -10,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,7 +19,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import java.net.URL;
@@ -164,6 +168,15 @@ public class controller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    public void chooseImg(ActionEvent event) throws IOException{
+        stage =(Stage)((Node)event.getSource()).getScene().getWindow();;
+        
+        FileChooser fc = new FileChooser();
+        File file = fc.showOpenDialog(stage);
+        System.out.println(file);
+
+    }
+    
 
 
 
