@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="addbookController">
    <children>
       <AnchorPane prefHeight="119.0" prefWidth="1080.0" AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -143,7 +143,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="224.0">
+                        <TextField fx:id="titleField" prefHeight="35.0" prefWidth="224.0">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -157,7 +157,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="224.0">
+                        <TextField fx:id="authorField" prefHeight="35.0" prefWidth="224.0">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -171,7 +171,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="224.0">
+                        <TextField fx:id="typeField" prefHeight="35.0" prefWidth="224.0">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -185,7 +185,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <DatePicker prefHeight="35.0" prefWidth="223.0" />
+                        <DatePicker fx:id="publisField" prefHeight="35.0" prefWidth="223.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="288.0">
@@ -195,7 +195,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="224.0">
+                        <TextField fx:id="priceField" prefHeight="35.0" prefWidth="224.0">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -209,7 +209,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="230.0">
+                        <TextField fx:id="quantityField" prefHeight="35.0" prefWidth="230.0">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -223,7 +223,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextArea prefHeight="69.0" prefWidth="227.0" />
+                        <TextArea fx:id="detailField" prefHeight="69.0" prefWidth="227.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="288.0" spacing="10.0">
@@ -256,7 +256,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#addBook" prefHeight="33.0" prefWidth="78.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Add">
+                        <Button mnemonicParsing="false" onAction="#insertBook" prefHeight="33.0" prefWidth="78.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Add">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -274,6 +274,11 @@
                   <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
                </padding>
             </VBox>
+            <Text fx:id="alert" layoutX="640.0" layoutY="526.0" opacity="0.87" strokeType="OUTSIDE" strokeWidth="0.0" text=" " wrappingWidth="104.80002441406259" AnchorPane.bottomAnchor="41.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

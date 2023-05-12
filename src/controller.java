@@ -61,6 +61,7 @@ public class controller implements Initializable {
         qntColumn.setCellValueFactory(new PropertyValueFactory<Book, Integer>("qnt"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("type"));
         authorColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
+        
         try{
             autolistbook();
         }catch(Exception e){
@@ -176,8 +177,4 @@ public class controller implements Initializable {
         System.out.println(file);
 
     }
-    
-
-
-
 }
