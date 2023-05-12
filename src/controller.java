@@ -36,80 +36,84 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 public class controller implements Initializable {
     @FXML
     private TextField searchBar = new TextField();
-    @FXML 
+    @FXML
     private TableView<Book> tableview = new TableView<Book>();
     @FXML
-    private TableColumn<Book,String> nameColumn = new TableColumn<Book,String>();
+    private TableColumn<Book, String> nameColumn = new TableColumn<Book, String>();
     @FXML
-    private TableColumn<Book,Integer> idColumn = new TableColumn<Book,Integer>();
+    private TableColumn<Book, Integer> idColumn = new TableColumn<Book, Integer>();
     @FXML
-    private TableColumn<Book,Double> priceColumn = new TableColumn<Book,Double>();
+    private TableColumn<Book, Double> priceColumn = new TableColumn<Book, Double>();
     @FXML
-    private TableColumn<Book,Integer> qntColumn = new TableColumn<Book,Integer>();
+    private TableColumn<Book, Integer> qntColumn = new TableColumn<Book, Integer>();
     @FXML
-    private TableColumn <Book,String> typeColumn = new TableColumn <Book,String>();
-    @FXML 
-    private TableColumn <Book,String> authorColumn = new TableColumn<Book,String>();
+    private TableColumn<Book, String> typeColumn = new TableColumn<Book, String>();
+    @FXML
+    private TableColumn<Book, String> authorColumn = new TableColumn<Book, String>();
+
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){//initialize the table value
-        idColumn.setCellValueFactory(new PropertyValueFactory<Book,Integer>("id"));
+    public void initialize(URL url, ResourceBundle resourceBundle) {// initialize the table value
+        idColumn.setCellValueFactory(new PropertyValueFactory<Book, Integer>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("name"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<Book, Double>("price"));
         qntColumn.setCellValueFactory(new PropertyValueFactory<Book, Integer>("qnt"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("type"));
         authorColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
-        
-        try{
+
+        try {
             autolistbook();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
-        //search bar event listener
-        searchBar.setOnKeyPressed( event-> {
-            if (event.getCode() == KeyCode.ENTER){
+        // search bar event listener
+        searchBar.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
                 String text = searchBar.getText();
-                if(text !=null){
+                if (text != null) {
                     tableview.getItems().clear();
-                    try(Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db")){
+                    try (Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db")) {
                         String sql = "SELECT * FROM products WHERE name LIKE ?";
                         PreparedStatement pst = conn.prepareStatement(sql);
-                        pst.setString(1,"%"+text+"%");
+                        pst.setString(1, "%" + text + "%");
                         ResultSet rs = pst.executeQuery();
-                        while(rs.next()){
-                            addbookTotable(rs.getInt(1) ,rs.getString(2), rs.getDouble(7), rs.getInt(8), rs.getString(6),rs.getString(4));
+                        while (rs.next()) {
+                            addbookTotable(rs.getInt(1), rs.getString(2), rs.getDouble(7), rs.getInt(8),
+                                    rs.getString(6), rs.getString(4));
                         }
-                    }catch(Exception ex){
+                    } catch (Exception ex) {
                         ex.printStackTrace();
                     }
                 }
             }
-        });  
+        });
     }
-    public void autolistbook()throws IOException{
-        try(ResultSet rs = ConnectDB.getConnection().execute("SELECT * FROM products")){
-            while(rs.next()){
-                addbookTotable(rs.getInt(1) ,rs.getString(2), rs.getDouble(7), rs.getInt(8), rs.getString(6),rs.getString(4));
+
+    public void autolistbook() throws IOException {
+        try (ResultSet rs = ConnectDB.getConnection().execute("SELECT * FROM products")) {
+            while (rs.next()) {
+                addbookTotable(rs.getInt(1), rs.getString(2), rs.getDouble(7), rs.getInt(8), rs.getString(6),
+                        rs.getString(4));
             }
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
-    public void addbookTotable(int id,String n,Double p,int q,String t,String a)throws IOException{
+
+    public void addbookTotable(int id, String n, Double p, int q, String t, String a) throws IOException {
         ObservableList<Book> books = tableview.getItems();
-        Book newbook = new Book(id,n,p,q,t,a);
+        Book newbook = new Book(id, n, p, q, t, a);
         tableview.getItems().add(newbook);
         tableview.setItems(books);
     }
-    
 
     // list book
-    public void listbook(Event event)throws IOException{
+    public void listbook(Event event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("listbook.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -120,61 +124,74 @@ public class controller implements Initializable {
     private Scene scene;
     private Parent root;
 
-    public void makeCopyList(ActionEvent event) throws IOException{
+    public void makeCopyList(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("copyBookList.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void makeCopyDetail(ActionEvent event) throws IOException{
+    public void makeCopyDetail(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("copyBookDetail.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
     // borrow book form
-    public void borrowBook(ActionEvent event) throws IOException{
+    public void borrowBook(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("borrowBook.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    // book borrowing 
-    public void bookBorrowingList(ActionEvent event) throws IOException{
+
+    // book borrowing
+    public void bookBorrowingList(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("borrowingList.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
     // return book
-    public void bookBorrowingDetail(ActionEvent event) throws IOException{
+    public void bookBorrowingDetail(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("returnBook.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
     // Add book
-    public void addBook(ActionEvent event) throws IOException{
+    public void addBook(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("addBook.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    public void chooseImg(ActionEvent event) throws IOException{
-        stage =(Stage)((Node)event.getSource()).getScene().getWindow();;
-        
+
+    public void chooseImg(ActionEvent event) throws IOException {
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        ;
+
         FileChooser fc = new FileChooser();
         File file = fc.showOpenDialog(stage);
         System.out.println(file);
 
+    }
+
+    // Update book
+    public void UpdateBook(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("UpdateBook.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
