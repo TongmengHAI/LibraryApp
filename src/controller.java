@@ -21,6 +21,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.Node;
@@ -159,6 +160,21 @@ public class controller implements Initializable {
     }
 
     // return book
+    @FXML
+    Text titleLabel = new Text();
+    @FXML
+    Text studentnameLabel = new Text();
+    @FXML
+    Text studentIdLabel = new Text();
+    @FXML
+    Text genderLabel = new Text();
+    @FXML
+    Text departmentLable = new Text();
+    @FXML
+    Text borrowdateLabel = new Text();
+    @FXML
+    Text duedateLabel = new Text();
+
     public void bookBorrowingDetail(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("returnBook.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -188,7 +204,7 @@ public class controller implements Initializable {
 
     // Update book
     public void UpdateBook(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("UpdateBook.fxml"));
+        root = FXMLLoader.load(getClass().getResource("updatebook.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

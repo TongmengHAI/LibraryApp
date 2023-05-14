@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="listborrowcontroller">
    <children>
       <AnchorPane AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -89,7 +89,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Update Book" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#UpdateBook" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Update Book" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -142,12 +142,12 @@
             <TableView fx:id="tableview" layoutX="8.0" layoutY="133.0" onSort="#makeCopyDetail" prefHeight="423.0" prefWidth="844.0" style="-fx-background-color: E0FBE2;" AnchorPane.bottomAnchor="7.800000000000068" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="133.0">
                <columns>
                   <TableColumn fx:id="idColumn" editable="false" prefWidth="58.39999467134476" resizable="false" text="No." />
-                  <TableColumn fx:id="nameColumn" editable="false" minWidth="1.600006103515625" prefWidth="209.86660766601562" resizable="false" text="Book Title" />
-                  <TableColumn fx:id="qntColumn" editable="false" prefWidth="108.66668701171875" resizable="false" text="Student's name" />
-                  <TableColumn fx:id="typeColumn" editable="false" prefWidth="113.3333740234375" resizable="false" text="Quantity" />
-                  <TableColumn fx:id="authorColumn" editable="false" prefWidth="93.3333740234375" resizable="false" text="Borrow Date" />
-                  <TableColumn fx:id="authorColumn1" editable="false" prefWidth="144.0" resizable="false" text="Deadline" />
-                  <TableColumn fx:id="authorColumn11" editable="false" prefWidth="144.0" resizable="false" text="Return Date" />
+                  <TableColumn fx:id="booktitleColumn" editable="false" minWidth="1.600006103515625" prefWidth="192.0" resizable="false" text="Book Title" />
+                  <TableColumn fx:id="studentnameColumn" editable="false" prefWidth="166.4000244140625" resizable="false" text="Student's name" />
+                  <TableColumn fx:id="qntColumn" editable="false" prefWidth="56.7999267578125" resizable="false" text="Quantity" />
+                  <TableColumn fx:id="borrowdateColumn" editable="false" prefWidth="140.0" resizable="false" text="Borrow Date" />
+                  <TableColumn fx:id="deadlineColumn" editable="false" prefWidth="114.39996337890625" resizable="false" text="Deadline" />
+                  <TableColumn fx:id="returndateColumn" editable="false" prefWidth="148.800048828125" resizable="false" text="Return Date" />
                </columns>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -156,7 +156,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <MenuButton layoutX="780.0" layoutY="88.0" mnemonicParsing="false" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Filter">
+            <MenuButton layoutX="780.0" layoutY="88.0" mnemonicParsing="false" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Filter" AnchorPane.rightAnchor="23.6">
                <items>
                   <MenuItem mnemonicParsing="false" text="Action 1" />
                   <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -165,7 +165,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Button layoutX="269.0" layoutY="89.0" mnemonicParsing="false" onAction="#bookBorrowingDetail" text="Button" />
+            <Button layoutX="269.0" layoutY="89.0" mnemonicParsing="false" onAction="#bookBorrowingDetail" text="Button" AnchorPane.rightAnchor="541.0" />
          </children>
       </AnchorPane>
    </children>
