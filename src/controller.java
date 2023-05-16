@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,9 +18,12 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafx.scene.Node;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.swing.event.SwingPropertyChangeSupport;
 
 import samples.db.ConnectDB;
 import script.Book;
@@ -61,6 +65,22 @@ public class controller implements Initializable {
         } catch (Exception e) {
             System.out.println(e);
         }
+        //set table row click event
+        tableview.setRowFactory(new Callback<TableView<Book>,TableRow<Book>>(){
+            @Override
+            public TableRow<Book> call(TableView<Book> tableview){
+                TableRow<Book> row = new TableRow<Book>();
+                row.setOnMouseClicked(event->{
+                    if(event.getClickCount()==2 && !row.isEmpty()){
+                        Book tempbook = row.getItem();// get the data from the row and give it to tempbook obj
+                        //what happen after clicking the row, code
+                        System.out.println(tempbook.getName());
+                    } 
+                });
+                return row;// this doesnt do anything
+            }
+        });
+
         // search bar event listener
         searchBar.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
@@ -83,6 +103,8 @@ public class controller implements Initializable {
             }
         });
     }
+    
+    
 
     public void autolistbook() throws IOException {
         try (ResultSet rs = ConnectDB.getConnection().execute("SELECT * FROM products")) {
