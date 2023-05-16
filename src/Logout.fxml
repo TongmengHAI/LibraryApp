@@ -106,7 +106,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" style="-fx-background-color: #078D14;" stylesheets="@script/css/makecopyStyle.css" text="Log Out" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#Logout" prefHeight="51.0" prefWidth="178.0" style="-fx-background-color: #078D14;" stylesheets="@script/css/makecopyStyle.css" text="Log Out" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
