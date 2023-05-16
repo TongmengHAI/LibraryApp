@@ -53,10 +53,6 @@ public class borrowbookcontroller implements Initializable{
     DatePicker returndate = new DatePicker();
     //this is for menubutton selection, has to be a global var else wont work
     String select;
-    // Book book;
-    // public void preloadbooktitle(Book b){
-    //     book = b;
-    // } doesnt work yet
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gendermale.setOnAction(event ->{
@@ -65,8 +61,11 @@ public class borrowbookcontroller implements Initializable{
         genderfemale.setOnAction(event->{
             select = genderfemale.getText();gender.setText(genderfemale.getText());
         });
-        //booktitle.setText(book.getName());
         
+    }
+    public void setdetail(Book b){
+        booktitle.setText(b.getName());
+        bookid.setText(Integer.toString(b.getId()));
     }
     public void borrow(ActionEvent event)throws IOException{
         gender.setText("Select");

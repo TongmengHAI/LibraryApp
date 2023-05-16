@@ -34,7 +34,7 @@ public class bookdetailcontroller {
     Text qntLabel = new Text();
     @FXML 
     Text detailLabel = new Text();
-
+    Book tempbook = new Book();
 
     public void setdetail(Book b){
         titleLabel.setText(b.getName());
@@ -45,18 +45,11 @@ public class bookdetailcontroller {
         priceLabel.setText(Double.toString(b.getPrice())+"$");
         qntLabel.setText(Integer.toString(b.getQnt()));
         detailLabel.setText(b.getDetail());
+        tempbook=b;
     }
     // list book
     public void listbook(Event event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("listbook.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    // List book Detail
-    public void listBookDetail(Event event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("listBookDetail.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -82,7 +75,11 @@ public class bookdetailcontroller {
     // borrow book form
     public void borrowBook(ActionEvent event) throws IOException {
         
-        root = FXMLLoader.load(getClass().getResource("borrowBook.fxml"));
+        // root = FXMLLoader.load(getClass().getResource("borrowBook.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("borrowBook.fxml"));
+        root = loader.load();
+        borrowbookcontroller bc = loader.getController();
+        bc.setdetail(tempbook);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
