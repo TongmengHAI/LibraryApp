@@ -18,12 +18,12 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import samples.db.InsertData;
+import script.Book;
 
 public class borrowbookcontroller implements Initializable{
     private Stage stage;
     private Scene scene;
     private Parent root;
-
     
     @FXML
     Label alert = new Label();
@@ -53,6 +53,10 @@ public class borrowbookcontroller implements Initializable{
     DatePicker returndate = new DatePicker();
     //this is for menubutton selection, has to be a global var else wont work
     String select;
+    // Book book;
+    // public void preloadbooktitle(Book b){
+    //     book = b;
+    // } doesnt work yet
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gendermale.setOnAction(event ->{
@@ -61,7 +65,7 @@ public class borrowbookcontroller implements Initializable{
         genderfemale.setOnAction(event->{
             select = genderfemale.getText();gender.setText(genderfemale.getText());
         });
-
+        //booktitle.setText(book.getName());
         
     }
     public void borrow(ActionEvent event)throws IOException{

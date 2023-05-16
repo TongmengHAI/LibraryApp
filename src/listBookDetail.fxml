@@ -172,7 +172,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="studentnameLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
+                                    <Text fx:id="idLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -181,12 +181,12 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Autor :">
+                                    <Label text="Author :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="studentIdLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
+                                    <Text fx:id="authorLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -200,7 +200,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="genderLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
+                                    <Text fx:id="publicLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -214,7 +214,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="departmentLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
+                                    <Text fx:id="typeLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -228,7 +228,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="borrowdateLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
+                                    <Text fx:id="priceLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -242,7 +242,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="duedateLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
+                                    <Text fx:id="qntLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -251,12 +251,12 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Describtion">
+                                    <Label text="Description">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="duedateLabel1" strokeType="OUTSIDE" strokeWidth="0.0" text="###############" wrappingWidth="133.9345703125">
+                                    <Text fx:id="detailLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############" wrappingWidth="133.9345703125">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
