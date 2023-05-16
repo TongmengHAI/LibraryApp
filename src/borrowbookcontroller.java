@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import samples.db.InsertData;
 
 public class borrowbookcontroller implements Initializable{
@@ -92,7 +93,29 @@ public class borrowbookcontroller implements Initializable{
         }
     }
     
-
+     // return book
+     @FXML
+     Text titleLabel = new Text();
+     @FXML
+     Text studentnameLabel = new Text();
+     @FXML
+     Text studentIdLabel = new Text();
+     @FXML
+     Text genderLabel = new Text();
+     @FXML
+     Text departmentLable = new Text();
+     @FXML
+     Text borrowdateLabel = new Text();
+     @FXML
+     Text duedateLabel = new Text();
+ 
+     public void bookBorrowingDetail(ActionEvent event) throws IOException {
+         root = FXMLLoader.load(getClass().getResource("returnBook.fxml"));
+         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+         scene = new Scene(root);
+         stage.setScene(scene);
+         stage.show();
+     }
 
 
     //code from another controller
@@ -136,13 +159,7 @@ public class borrowbookcontroller implements Initializable{
     }
 
     // return book
-    public void bookBorrowingDetail(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("returnBook.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    
     public void UpdateBook(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("updatebook.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -150,30 +150,6 @@ public class controller implements Initializable {
         stage.show();
     }
 
-    // return book
-    @FXML
-    Text titleLabel = new Text();
-    @FXML
-    Text studentnameLabel = new Text();
-    @FXML
-    Text studentIdLabel = new Text();
-    @FXML
-    Text genderLabel = new Text();
-    @FXML
-    Text departmentLable = new Text();
-    @FXML
-    Text borrowdateLabel = new Text();
-    @FXML
-    Text duedateLabel = new Text();
-
-    public void bookBorrowingDetail(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("returnBook.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     // Add book
     public void addBook(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("addBook.fxml"));
