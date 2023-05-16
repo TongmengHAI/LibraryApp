@@ -186,9 +186,18 @@ public class controller implements Initializable {
 
     }
 
-    // Update book
-    public void UpdateBook(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("UpdateBook.fxml"));
+    // update book
+    public void Updatebook(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("Updatebook.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    // Log out book
+    public void Logout(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("Logout.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
