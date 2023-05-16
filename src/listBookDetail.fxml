@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookdetailcontroller">
    <children>
       <AnchorPane prefHeight="119.0" prefWidth="1080.0" AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -165,7 +165,7 @@
                         </VBox>
                         <VBox prefHeight="246.0" prefWidth="278.0">
                            <children>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="ID :">
                                        <font>
@@ -179,7 +179,7 @@
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="Author :">
                                        <font>
@@ -193,7 +193,7 @@
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="Public :">
                                        <font>
@@ -207,7 +207,7 @@
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="Type :">
                                        <font>
@@ -221,7 +221,7 @@
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="Price :">
                                        <font>
@@ -235,7 +235,7 @@
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="Quantity :">
                                        <font>
@@ -249,21 +249,20 @@
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox prefHeight="83.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Description">
+                                    <Label text="Description:">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="detailLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############" wrappingWidth="133.9345703125">
+                                    <Text fx:id="detailLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############" wrappingWidth="167.53460693359375">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER" prefHeight="42.0" prefWidth="278.0" />
                            </children>
                            <padding>
                               <Insets top="40.0" />

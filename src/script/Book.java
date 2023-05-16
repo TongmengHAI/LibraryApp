@@ -39,6 +39,12 @@ public class Book {
     public String getAuthor(){
         return author;
     }
+    public void setDetail(String d){
+        this.detail =d;
+    }
+    public void setPublis(String i){
+        this.publis = i;
+    }
     public void setAuthor(String a){
         this.author = a;
     }

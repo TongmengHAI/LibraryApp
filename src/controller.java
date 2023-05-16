@@ -15,7 +15,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -24,6 +23,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import samples.db.ConnectDB;
+import samples.db.SelectData;
 import script.Book;
 
 import java.sql.Connection;
@@ -48,28 +48,11 @@ public class controller implements Initializable {
     private TableColumn<Book, String> typeColumn = new TableColumn<Book, String>();
     @FXML
     private TableColumn<Book, String> authorColumn = new TableColumn<Book, String>();
-    //list book detail
-
-    @FXML
-    Text titleLabel = new Text();
-    @FXML
-    Text idLabel = new Text();
-    @FXML
-    Text authorLabel= new Text();
-    @FXML
-    Text publicLabel = new Text();
-    @FXML
-    Text typeLabel = new Text();
-    @FXML
-    Text priceLabel = new Text();
-    @FXML
-    Text qntLabel = new Text();
-    @FXML 
-    Text detailLabel = new Text();
+    
 
     Book tempbook = new Book();
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {// initialize the table value
+    public void initialize(URL url, ResourceBundle resourceBundle){// initialize the table value
         idColumn.setCellValueFactory(new PropertyValueFactory<Book, Integer>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("name"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<Book, Double>("price"));
@@ -91,9 +74,14 @@ public class controller implements Initializable {
                     if(event.getClickCount()==2 && !row.isEmpty()){
                         tempbook = row.getItem();// get the data from the row and give it to tempbook obj
                         //what happen after clicking the row, code
-                        System.out.println(tempbook.getName());
+                        SelectData d = new SelectData();
+                        tempbook = d.findbook(tempbook.getId());
                         try{
-                            root = FXMLLoader.load(getClass().getResource("listBookDetail.fxml"));
+                            
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("listBookDetail.fxml"));
+                            root = loader.load();
+                            bookdetailcontroller bd = loader.getController();
+                            bd.setdetail(tempbook);
                         }catch(IOException e){
                             e.printStackTrace();
                         }
@@ -101,10 +89,6 @@ public class controller implements Initializable {
                         scene = new Scene(root);
                         stage.setScene(scene);
                         stage.show();
-                        //@FXML
-                        titleLabel.setText(tempbook.getName());
-                        idLabel.setText(Integer.toString(tempbook.getId()));
-                        authorLabel.setText(tempbook.getAuthor());
                     } 
                 });
                 return row;// this doesnt do anything
