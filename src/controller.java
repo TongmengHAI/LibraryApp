@@ -1,8 +1,6 @@
 
 import java.io.File;
 import java.io.IOException;
-
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -11,25 +9,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafx.scene.Node;
 import java.net.URL;
-import java.security.spec.ECField;
 import java.util.ResourceBundle;
 
+import javax.swing.event.SwingPropertyChangeSupport;
+
 import samples.db.ConnectDB;
-import samples.db.SelectData;
 import script.Book;
 
 import java.sql.Connection;
@@ -69,6 +65,22 @@ public class controller implements Initializable {
         } catch (Exception e) {
             System.out.println(e);
         }
+        //set table row click event
+        tableview.setRowFactory(new Callback<TableView<Book>,TableRow<Book>>(){
+            @Override
+            public TableRow<Book> call(TableView<Book> tableview){
+                TableRow<Book> row = new TableRow<Book>();
+                row.setOnMouseClicked(event->{
+                    if(event.getClickCount()==2 && !row.isEmpty()){
+                        Book tempbook = row.getItem();// get the data from the row and give it to tempbook obj
+                        //what happen after clicking the row, code
+                        System.out.println(tempbook.getName());
+                    } 
+                });
+                return row;// this doesnt do anything
+            }
+        });
+
         // search bar event listener
         searchBar.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
@@ -91,6 +103,8 @@ public class controller implements Initializable {
             }
         });
     }
+    
+    
 
     public void autolistbook() throws IOException {
         try (ResultSet rs = ConnectDB.getConnection().execute("SELECT * FROM products")) {
@@ -113,6 +127,14 @@ public class controller implements Initializable {
     // list book
     public void listbook(Event event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("listbook.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    // List book Detail
+    public void listBookDetail(Event event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("listBookDetail.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -158,15 +180,6 @@ public class controller implements Initializable {
         stage.show();
     }
 
-    // return book
-    public void bookBorrowingDetail(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("returnBook.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     // Add book
     public void addBook(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("addBook.fxml"));
@@ -186,6 +199,7 @@ public class controller implements Initializable {
 
     }
 
+<<<<<<< HEAD
     // update book
     public void Updatebook(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Updatebook.fxml"));
@@ -198,6 +212,11 @@ public class controller implements Initializable {
     // Log out book
     public void Logout(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Logout.fxml"));
+=======
+    // Update book
+    public void UpdateBook(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("updatebook.fxml"));
+>>>>>>> a8f669bad6cbe34e8459a880952262240907651d
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

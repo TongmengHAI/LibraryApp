@@ -4,7 +4,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="borrowbookcontroller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
    <children>
       <AnchorPane prefHeight="119.0" prefWidth="1080.0" AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -44,7 +43,7 @@
                   <String fx:value="sideBar_background" />
                   <String fx:value="sideBar_hover" />
                </styleClass></Button>
-            <Button mnemonicParsing="false" onAction="#listbook" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="List Book" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#listbook" prefHeight="51.0" prefWidth="178.0" style="-fx-background-color: #078D14;" stylesheets="@script/css/makecopyStyle.css" text="List Book" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -66,7 +65,7 @@
                   <String fx:value="sideBar_hover" />
                   <String fx:value="sideBar_background" />
                </styleClass></Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" style="-fx-background-color: #078D14;" stylesheets="@script/css/makecopyStyle.css" text="Book Borrowing" textFill="WHITE">
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Book Borrowing" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -88,11 +87,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-<<<<<<< HEAD
-            <Button mnemonicParsing="false" onAction="#Updatebook" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Update Book" textFill="WHITE">
-=======
             <Button mnemonicParsing="false" onAction="#UpdateBook" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Update Book" textFill="WHITE">
->>>>>>> a8f669bad6cbe34e8459a880952262240907651d
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -114,7 +109,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" onAction="#Logout" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Log Out" textFill="WHITE">
+            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Log Out" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -131,7 +126,7 @@
          <children>
             <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="844.0" style="-fx-background-color: #B4C640;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="10.0">
                <children>
-                  <Text layoutX="369.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Borrowing" AnchorPane.bottomAnchor="17.9140625" AnchorPane.leftAnchor="369.0" AnchorPane.rightAnchor="353.640625" AnchorPane.topAnchor="14.885937499999997">
+                  <Text layoutX="369.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Detail" AnchorPane.bottomAnchor="17.9140625" AnchorPane.leftAnchor="369.0" AnchorPane.rightAnchor="353.640625" AnchorPane.topAnchor="14.885937499999997">
                      <font>
                         <Font name="Arial Bold" size="24.0" />
                      </font>
@@ -168,11 +163,11 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox prefHeight="369.0" prefWidth="278.0">
+                        <VBox prefHeight="246.0" prefWidth="278.0">
                            <children>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Student's name: ">
+                                    <Label text="ID :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -186,7 +181,7 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Student's ID: ">
+                                    <Label text="Autor :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -200,7 +195,7 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Gender">
+                                    <Label text="Public :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -214,7 +209,7 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Departement: ">
+                                    <Label text="Type :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -228,7 +223,7 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Borrow date: ">
+                                    <Label text="Price :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -242,7 +237,7 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Due date:">
+                                    <Label text="Quantity :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -256,26 +251,19 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Return date:">
+                                    <Label text="Describtion">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker prefHeight="25.0" prefWidth="133.0" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#bookBorrowingList" prefHeight="28.0" prefWidth="73.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Return">
+                                    <Text fx:id="duedateLabel1" strokeType="OUTSIDE" strokeWidth="0.0" text="###############" wrappingWidth="133.9345703125">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
+                                    </Text>
                                  </children>
                               </HBox>
+                              <HBox alignment="CENTER" prefHeight="42.0" prefWidth="278.0" />
                            </children>
                            <padding>
                               <Insets top="40.0" />
@@ -291,18 +279,38 @@
                            </VBox.margin></Line>
                      </children>
                   </VBox>
-                  <VBox prefHeight="111.0" prefWidth="834.0">
+                  <VBox prefHeight="66.0" prefWidth="832.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="832.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="328.0">
                            <children>
-                              <Button cancelButton="true" mnemonicParsing="false" onAction="#bookBorrowingList" prefHeight="32.0" prefWidth="66.0" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Back">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
+                              <AnchorPane prefHeight="66.0" prefWidth="706.0">
+                                 <children>
+                                    <Button cancelButton="true" layoutX="48.0" layoutY="17.0" mnemonicParsing="false" onAction="#listbook" prefHeight="32.0" prefWidth="66.0" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="&lt; Back">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button cancelButton="true" layoutX="385.0" layoutY="17.0" mnemonicParsing="false" onAction="#bookBorrowingList" prefHeight="32.0" prefWidth="134.0" style="-fx-background-color: #63C5EA;" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Make Issue">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button cancelButton="true" layoutX="553.0" layoutY="17.0" mnemonicParsing="false" onAction="#borrowBook" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #63C5EA;" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Borrow Book">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
                            </children>
                            <padding>
                               <Insets left="70.0" />
