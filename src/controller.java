@@ -110,6 +110,14 @@ public class controller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    // List book Detail
+    public void listBookDetail(Event event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("listBookDetail.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     // make copy book
     private Stage stage;
