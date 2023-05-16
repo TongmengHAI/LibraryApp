@@ -228,17 +228,8 @@ public class controller implements Initializable {
 
     }
 
-    // update book
-    public void Updatebook(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Updatebook.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     // Log out book
-    public void Logout(ActionEvent event) throws IOException {
+    public void logout(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Logout.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -246,7 +237,7 @@ public class controller implements Initializable {
         stage.show();
     }
     // Update book
-    public void UpdateBook(ActionEvent event) throws IOException {
+    public void updateBook(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("updatebook.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

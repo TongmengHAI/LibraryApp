@@ -88,11 +88,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-<<<<<<< HEAD
             <Button mnemonicParsing="false" onAction="#Updatebook" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Update Book" textFill="WHITE">
-=======
-            <Button mnemonicParsing="false" onAction="#UpdateBook" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Update Book" textFill="WHITE">
->>>>>>> a8f669bad6cbe34e8459a880952262240907651d
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>

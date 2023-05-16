@@ -134,4 +134,12 @@ public class addbookController {
         stage.setScene(scene);
         stage.show();
     }
+    // Log out book
+    public void logout(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("Logout.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
