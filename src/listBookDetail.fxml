@@ -167,7 +167,7 @@
                            <children>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Autor :">
+                                    <Label text="ID :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -181,7 +181,7 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Public :">
+                                    <Label text="Autor :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -195,7 +195,7 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Type :">
+                                    <Label text="Public :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -209,7 +209,7 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Price :">
+                                    <Label text="Type :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -223,7 +223,7 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Quantity :">
+                                    <Label text="Price :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -237,7 +237,7 @@
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
-                                    <Label text="Available :">
+                                    <Label text="Quantity :">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
