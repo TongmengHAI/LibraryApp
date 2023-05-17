@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import samples.db.InsertData;
 import script.Book;
+import script.BorrowBook;
 
 public class borrowbookcontroller implements Initializable{
     private Stage stage;
@@ -51,6 +52,25 @@ public class borrowbookcontroller implements Initializable{
     DatePicker borrowdate = new DatePicker();
     @FXML
     DatePicker returndate = new DatePicker();
+
+    //reutrn book variable
+    @FXML
+    Text title= new Text();
+    @FXML
+    Text name = new Text();
+    @FXML
+    Text id = new Text();
+    @FXML
+    Text gen = new Text();
+    @FXML
+    Text dep = new Text();
+    @FXML
+    Text bd = new Text();
+    @FXML
+    Text dd = new Text();
+    @FXML 
+    DatePicker rd = new DatePicker();
+
     //this is for menubutton selection, has to be a global var else wont work
     String select;
     @Override
@@ -62,6 +82,15 @@ public class borrowbookcontroller implements Initializable{
             select = genderfemale.getText();gender.setText(genderfemale.getText());
         });
         
+    }
+    public void setreturnbook(BorrowBook b){
+        title.setText(b.getTitle());
+        dep.setText(b.getDeparment());
+        dd.setText(b.getDeadline());
+        bd.setText(b.getBorrowdate());
+        id.setText(Integer.toString(b.getId()));
+        gen.setText(b.getGender());
+        name.setText(b.getStudentname());
     }
     public void setdetail(Book b){
         booktitle.setText(b.getName());
@@ -95,29 +124,11 @@ public class borrowbookcontroller implements Initializable{
             e.printStackTrace();
         }
     }
-    
-     // return book
-     @FXML
-     Text titleLabel = new Text();
-     @FXML
-     Text studentnameLabel = new Text();
-     @FXML
-     Text studentIdLabel = new Text();
-     @FXML
-     Text genderLabel = new Text();
-     @FXML
-     Text departmentLable = new Text();
-     @FXML
-     Text borrowdateLabel = new Text();
-     @FXML
-     Text duedateLabel = new Text();
  
-     public void bookBorrowingDetail(ActionEvent event) throws IOException {
-         root = FXMLLoader.load(getClass().getResource("returnBook.fxml"));
-         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-         scene = new Scene(root);
-         stage.setScene(scene);
-         stage.show();
+     public void returnbookbtn(ActionEvent event) throws IOException {
+        LocalDate red = rd.getValue();
+        String returndat = red.toString();
+        
      }
 
 

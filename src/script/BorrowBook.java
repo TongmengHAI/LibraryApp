@@ -2,13 +2,18 @@ package script;
 
 public class BorrowBook {
     private int id;
+    private String studentid;
     private String title;
     private String studentname;
+    private String gender;
+    private String department;
     private int qnt;
     private String borrowdate;
     private String deadline;
     private String returndate;
-    
+    private int bookid;
+
+    public BorrowBook(){}
     public BorrowBook(int a,String b, String c, int d, String e, String f,String g){
         this.id = a;
         this.title = b;
@@ -18,6 +23,34 @@ public class BorrowBook {
         this.deadline = f;
         this.returndate = g;
     }
+    public BorrowBook(int a,String b, String c, int d, String e, String f,String g,String h,int i,String j){
+        this.id = a;
+        this.title = b;
+        this.studentname = c;
+        this.qnt = d;
+        this.borrowdate = e;
+        this.deadline = f;
+        this.gender = g;
+        this.department = h;
+        this.bookid = i;
+        this.studentid = j;
+    }
+    public String getStudentid(){return studentid;}
+    public void setStudentid(String i){
+        this.studentid = i;
+    }
+    public int getBookid(){return bookid;}
+    public void setBookid(int id){
+        this.bookid = id;
+    }
+    public void setGender(String g){
+        this.gender = g;
+    }
+    public String getGender() {return gender;}
+    public void setDepartment(String de){
+        this.department = de;
+    }
+    public String getDeparment(){return department;}
     public void setId(int id){
         this.id = id;
     }

@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
+
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,10 +13,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import samples.db.ConnectDB;
+import samples.db.SelectData;
 import script.BorrowBook;
 
 public class listborrowcontroller implements Initializable{
@@ -40,7 +44,7 @@ public class listborrowcontroller implements Initializable{
     TableColumn<BorrowBook,String> deadlineColumn = new TableColumn<BorrowBook,String>();
     @FXML
     TableColumn<BorrowBook,String> returndateColumn = new TableColumn<BorrowBook,String>();
-
+    BorrowBook tempbook = new BorrowBook();
     public void initialize(URL url,ResourceBundle resourceBundle){
         idColumn.setCellValueFactory(new PropertyValueFactory<BorrowBook, Integer>("id"));
         booktitleColumn.setCellValueFactory(new PropertyValueFactory<BorrowBook, String>("title"));
@@ -49,7 +53,36 @@ public class listborrowcontroller implements Initializable{
         borrowdateColumn.setCellValueFactory(new PropertyValueFactory<BorrowBook, String>("borrowdate"));
         deadlineColumn.setCellValueFactory(new PropertyValueFactory<BorrowBook, String>("deadline"));
         returndateColumn.setCellValueFactory(new PropertyValueFactory<BorrowBook, String>("returndate"));
-
+        
+        //set table row click event
+        tableview.setRowFactory((Callback<TableView<BorrowBook>, TableRow<BorrowBook>>) new Callback<TableView<BorrowBook>,TableRow<BorrowBook>>(){
+            @Override
+            public TableRow<BorrowBook> call(TableView<BorrowBook> tableview){
+                TableRow<BorrowBook> row = new TableRow<BorrowBook>();
+                row.setOnMouseClicked(event->{
+                    if(event.getClickCount()==2 && !row.isEmpty()){
+                        tempbook = row.getItem();// get the data from the row and give it to tempbook obj
+                        //what happen after clicking the row, code
+                        SelectData d = new SelectData();
+                        tempbook = d.findborrowbook(tempbook.getId());
+                        try{
+                            
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("returnBook.fxml"));
+                            root = loader.load();
+                            borrowbookcontroller b = loader.getController();
+                            b.setreturnbook(tempbook);
+                        }catch(IOException e){
+                            e.printStackTrace();
+                        }
+                        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
+                    } 
+                });
+                return row;// this doesnt do anything
+            }
+        });
         //initialize table
         try{
             autolistdata();
@@ -60,7 +93,7 @@ public class listborrowcontroller implements Initializable{
     public void autolistdata() throws IOException {
         try (ResultSet rs = ConnectDB.getConnection().execute("SELECT * FROM Borrowedbooks")) {
             while (rs.next()) {
-                adddataTotable(rs.getInt(1),rs.getString(7),rs.getString(2),rs.getInt(4),rs.getString(9),rs.getString(10),rs.getString(10));
+                adddataTotable(rs.getInt(1),rs.getString(7),rs.getString(2),rs.getInt(4),rs.getString(9),rs.getString(10),rs.getString(11));
             }
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -88,7 +88,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" onAction="#Updatebook" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Update Book" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#updateBook" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Update Book" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -110,7 +110,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" onAction="#Logout" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Log Out" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#logout" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Log Out" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -146,7 +146,7 @@
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="titleLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="######" wrappingWidth="105.87237930297852">
+                                    <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="######" wrappingWidth="105.87237930297852">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -166,103 +166,103 @@
                         </VBox>
                         <VBox prefHeight="369.0" prefWidth="278.0">
                            <children>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="Student's name: ">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="studentnameLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
+                                    <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="Student's ID: ">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="studentIdLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
+                                    <Text fx:id="id" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="Gender">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="genderLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
+                                    <Text fx:id="gen" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="Departement: ">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="departmentLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
+                                    <Text fx:id="dep" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="Borrow date: ">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="borrowdateLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
+                                    <Text fx:id="bd" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="Due date:">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="duedateLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
+                                    <Text fx:id="dd" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="Return date:">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker prefHeight="25.0" prefWidth="133.0" />
+                                    <DatePicker fx:id="rd" prefHeight="25.0" prefWidth="133.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#bookBorrowingList" prefHeight="28.0" prefWidth="73.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Return">
+                                    <Button mnemonicParsing="false" onAction="#returnbookbtn" prefHeight="28.0" prefWidth="73.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Return">
                                        <font>
                                           <Font size="15.0" />
                                        </font>

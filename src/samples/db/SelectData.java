@@ -30,4 +30,30 @@ public class SelectData {
         }
         return null;
     }
+    public BorrowBook findborrowbook(int id){
+        String sql = "SELECT * FROM Borrowedbooks WHERE id = "+id;
+        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db");
+        PreparedStatement pst = conn.prepareStatement(sql)){
+            // pst.setInt(1,id);
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()){
+                BorrowBook b = new BorrowBook();
+                b.setId(rs.getInt(1));
+                b.setStudentname(rs.getString(2));
+                b.setId(rs.getInt(3));
+                b.setGender(rs.getString(4));
+                b.setDepartment(rs.getString(5));
+                b.setTitle(rs.getString(7));
+                b.setBorrowdate(rs.getString(9));
+                b.setDeadline(rs.getString(10));
+                return b;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public void updateborrowbook(BorrowBook b){
+        
+    }
 }
