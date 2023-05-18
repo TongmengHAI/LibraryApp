@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="copybookcontroller">
    <children>
       <AnchorPane AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -139,15 +139,14 @@
                   <String fx:value="round-layout" />
                   <String fx:value="white-background" />
                </styleClass></TextField>
-            <TableView fx:id="tableview" layoutX="8.0" layoutY="133.0" onSort="#makeCopyDetail" prefHeight="423.0" prefWidth="844.0" style="-fx-background-color: E0FBE2;" AnchorPane.bottomAnchor="7.800000000000068" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="133.0">
+            <TableView fx:id="tableview" layoutX="8.0" layoutY="133.0" prefHeight="423.0" prefWidth="844.0" style="-fx-background-color: E0FBE2;" AnchorPane.bottomAnchor="7.800000000000068" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="133.0">
                <columns>
                   <TableColumn fx:id="idColumn" editable="false" prefWidth="58.39999467134476" resizable="false" text="No." />
-                  <TableColumn fx:id="nameColumn" editable="false" minWidth="1.600006103515625" prefWidth="209.86660766601562" resizable="false" text="Book Title" />
-                  <TableColumn fx:id="priceColumn" editable="false" minWidth="8.79998779296875" prefWidth="129.06661987304688" resizable="false" text="Price" />
-                  <TableColumn fx:id="qntColumn" editable="false" prefWidth="108.66668701171875" resizable="false" text="Author" />
-                  <TableColumn fx:id="typeColumn" editable="false" prefWidth="113.3333740234375" resizable="false" text="Quantity" />
-                  <TableColumn fx:id="authorColumn" editable="false" prefWidth="93.3333740234375" resizable="false" text="Public" />
-                  <TableColumn fx:id="authorColumn1" editable="false" prefWidth="144.0" resizable="false" text="Copy" />
+                  <TableColumn fx:id="nameColumn" editable="false" minWidth="1.600006103515625" prefWidth="219.199951171875" resizable="false" text="Book Title" />
+                  <TableColumn fx:id="priceColumn" editable="false" minWidth="8.79998779296875" prefWidth="132.00006103515625" resizable="false" text="Price" />
+                  <TableColumn fx:id="qntColumn" editable="false" prefWidth="92.800048828125" resizable="false" text="Quantity" />
+                  <TableColumn fx:id="typeColumn" editable="false" prefWidth="147.199951171875" resizable="false" text="Type" />
+                  <TableColumn fx:id="authorColumn" editable="false" prefWidth="124.0" resizable="false" text="Author" />
                </columns>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -174,7 +173,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <Button layoutX="269.0" layoutY="89.0" mnemonicParsing="false" onAction="#makeCopyDetail" text="Button" />
          </children>
       </AnchorPane>
    </children>
