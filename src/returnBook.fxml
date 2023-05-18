@@ -262,7 +262,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#returnbookbtn" prefHeight="28.0" prefWidth="73.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Return">
+                                    <Button fx:id="returnbtn" mnemonicParsing="false" onAction="#returnbookbtn" prefHeight="28.0" prefWidth="73.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Return">
                                        <font>
                                           <Font size="15.0" />
                                        </font>

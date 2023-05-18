@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
@@ -18,6 +19,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import samples.db.InsertData;
+import samples.db.SelectData;
 import script.Book;
 import script.BorrowBook;
 
@@ -70,6 +72,9 @@ public class borrowbookcontroller implements Initializable{
     Text dd = new Text();
     @FXML 
     DatePicker rd = new DatePicker();
+    
+    @FXML
+    Button returnbtn = new Button();
 
     //this is for menubutton selection, has to be a global var else wont work
     String select;
@@ -124,10 +129,11 @@ public class borrowbookcontroller implements Initializable{
             e.printStackTrace();
         }
     }
- 
-     public void returnbookbtn(ActionEvent event) throws IOException {
+    public void returnbookbtn(ActionEvent event) throws IOException {
         LocalDate red = rd.getValue();
         String returndat = red.toString();
+        SelectData d = new SelectData();
+        d.updatereturnbook(Integer.parseInt(id.getText()), returndat);
         
      }
 

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import script.*;
 
 public class SelectData {
@@ -46,6 +48,7 @@ public class SelectData {
                 b.setTitle(rs.getString(7));
                 b.setBorrowdate(rs.getString(9));
                 b.setDeadline(rs.getString(10));
+                b.setReturndate(rs.getString(11));
                 return b;
             }
         }catch(Exception e){
@@ -53,7 +56,18 @@ public class SelectData {
         }
         return null;
     }
-    public void updateborrowbook(BorrowBook b){
-        
+    public void updatereturnbook(int id,String rd){
+        String sql = "UPDATE Borrowedbooks SET returndate = ? WHERE id = ?";
+        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db");
+        PreparedStatement pst = conn.prepareStatement(sql)){
+            pst.setString(2, rd);
+            pst.setInt(1,id);
+            int ra = pst.executeUpdate();
+            if(ra >0){
+                System.out.println("success");
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 }
