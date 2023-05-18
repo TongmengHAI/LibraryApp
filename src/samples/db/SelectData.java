@@ -57,14 +57,14 @@ public class SelectData {
         return null;
     }
     public void updatereturnbook(int id,String rd){
-        String sql = "UPDATE Borrowedbooks SET returndate = ? WHERE id = ?";
+        String sql = "UPDATE Borrowedbooks SET studentname = ?, studentid = ?, gender = ?, department = ?, year = ?, booktitle = ?, bookid = ?, borrowdate = ?, deadline = ?, returndate = ? WHERE id = ?";
         try(Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db");
         PreparedStatement pst = conn.prepareStatement(sql)){
-            pst.setString(2, rd);
-            pst.setInt(1,id);
+            pst.setString(11, rd);
+            pst.setInt(2,id);
             int ra = pst.executeUpdate();
             if(ra >0){
-                System.out.println("success");
+                System.out.println("success");//code doesnt work at all
             }
         }catch(SQLException e){
             e.printStackTrace();

@@ -1,6 +1,11 @@
-
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ResourceBundle;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -15,23 +20,18 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.scene.Node;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import samples.db.ConnectDB;
 import samples.db.SelectData;
 import script.Book;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+public class copybookcontroller implements Initializable{
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
-public class controller implements Initializable {
     @FXML
     private TextField searchBar = new TextField();
     @FXML
@@ -48,11 +48,11 @@ public class controller implements Initializable {
     private TableColumn<Book, String> typeColumn = new TableColumn<Book, String>();
     @FXML
     private TableColumn<Book, String> authorColumn = new TableColumn<Book, String>();
-    
-
     Book tempbook = new Book();
+
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){// initialize the table value
+    public void initialize(URL url, ResourceBundle resourceBundle){
+
         idColumn.setCellValueFactory(new PropertyValueFactory<Book, Integer>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("name"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<Book, Double>("price"));
@@ -65,8 +65,8 @@ public class controller implements Initializable {
         } catch (Exception e) {
             System.out.println(e);
         }
-        //set table row click event
-        tableview.setRowFactory(new Callback<TableView<Book>,TableRow<Book>>(){
+        //copy book table
+        tableview.setRowFactory((Callback<TableView<Book>, TableRow<Book>>) new Callback<TableView<Book>,TableRow<Book>>(){
             @Override
             public TableRow<Book> call(TableView<Book> tableview){
                 TableRow<Book> row = new TableRow<Book>();
@@ -78,10 +78,11 @@ public class controller implements Initializable {
                         tempbook = d.findbook(tempbook.getId());
                         try{
                             
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("listBookDetail.fxml"));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("copyBookDetail.fxml"));
                             root = loader.load();
-                            bookdetailcontroller bd = loader.getController();
-                            bd.setdetail(tempbook);
+                            copybookdetail cd = loader.getController();
+                            cd.setdetail(tempbook);
+
                         }catch(IOException e){
                             e.printStackTrace();
                         }
@@ -94,7 +95,6 @@ public class controller implements Initializable {
                 return row;// this doesnt do anything
             }
         });
-        
         // search bar event listener
         searchBar.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
@@ -117,7 +117,6 @@ public class controller implements Initializable {
             }
         });
     }
-
     public void autolistbook() throws IOException {
         try (ResultSet rs = ConnectDB.getConnection().execute("SELECT * FROM products")) {
             while (rs.next()) {
@@ -135,7 +134,7 @@ public class controller implements Initializable {
         tableview.getItems().add(newbook);
         tableview.setItems(books);
     }
-
+    
     // list book
     public void listbook(Event event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("listbook.fxml"));
@@ -152,12 +151,6 @@ public class controller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
-    // make copy book
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
     public void makeCopyList(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("copyBookList.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -192,15 +185,6 @@ public class controller implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void chooseImg(ActionEvent event) throws IOException {
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        FileChooser fc = new FileChooser();
-        File file = fc.showOpenDialog(stage);
-        System.out.println(file);
-
     }
 
     // Log out book
