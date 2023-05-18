@@ -134,7 +134,7 @@
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="titleLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="######" wrappingWidth="105.87237930297852">
+                                    <Text fx:id="titleLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="######" wrappingWidth="196.27234268188477">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
