@@ -10,14 +10,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F0FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F0FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
    <center>
       <AnchorPane prefHeight="336.0" prefWidth="320.0" style="-fx-background-color: #D3D3D3;" BorderPane.alignment="TOP_CENTER">
          <padding>
             <Insets top="1.0" />
          </padding>
          <children>
-            <Pane layoutX="87.0" layoutY="133.0" prefHeight="219.0" prefWidth="426.0" style="-fx-background-color: #63C5EA;">
+            <Pane layoutX="87.0" layoutY="133.0" prefHeight="219.0" prefWidth="426.0" style="-fx-background-color: #63C5EA;" AnchorPane.bottomAnchor="46.80000000000001" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="86.60000000000002" AnchorPane.topAnchor="133.0">
                <children>
                   <Text fill="#7f59b0" fontSmoothingType="LCD" layoutX="163.0" layoutY="38.0" stroke="#b05ab0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log in" wrappingWidth="100.0">
                      <cursor>
@@ -35,8 +35,8 @@
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="165.0" layoutY="57.0" prefHeight="25.0" prefWidth="198.0" promptText=" Username " />
-                  <Button layoutX="168.0" layoutY="154.0" mnemonicParsing="false" onAction="#switchToGUI" text="Sign in" textFill="#2f0d15" underline="true" wrapText="true">
+                  <TextField fx:id="username" layoutX="165.0" layoutY="57.0" prefHeight="25.0" prefWidth="198.0" promptText=" Username " />
+                  <Button layoutX="168.0" layoutY="154.0" mnemonicParsing="false" onAction="#listbook2" text="Sign in" textFill="#2f0d15" underline="true" wrapText="true">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
@@ -49,10 +49,11 @@
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="165.0" layoutY="96.0" prefHeight="25.0" prefWidth="198.0" promptText="Password " />
+                  <TextField fx:id="password" layoutX="165.0" layoutY="96.0" prefHeight="25.0" prefWidth="198.0" promptText="Password " />
+                  <Text fx:id="a" fill="#ea2106" layoutX="275.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="136.0001220703125" />
                </children>
             </Pane>
-            <Text layoutX="285.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Library" wrappingWidth="143.91552734375">
+            <Text layoutX="285.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Library" wrappingWidth="143.91552734375" AnchorPane.rightAnchor="171.08447265625" AnchorPane.topAnchor="38.7880859375">
                <font>
                   <Font name="System Bold" size="39.0" />
                </font>

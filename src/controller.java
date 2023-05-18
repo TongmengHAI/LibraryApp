@@ -15,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -144,6 +145,26 @@ public class controller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    TextField username = new TextField();
+    @FXML
+    TextField password = new TextField();
+    @FXML 
+    Text a = new Text();
+    public void listbook2(Event event) throws IOException{
+        if(username.getText().equals("admin") && password.getText().equals("12345")) {
+            root = FXMLLoader.load(getClass().getResource("listbook.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else{
+            a.setText("Incorrect username or password");
+            
+        }
+            
+    }
     // List book Detail
     public void listBookDetail(Event event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("listBookDetail.fxml"));
@@ -213,6 +234,14 @@ public class controller implements Initializable {
     // Update book
     public void updateBook(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("updatebook.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    //logout
+    public void siignout(ActionEvent event)throws IOException{
+        root = FXMLLoader.load(getClass().getResource("login.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

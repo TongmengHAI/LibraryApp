@@ -27,20 +27,20 @@ public class CreateProductTable {
                     returndate TEXT
                 )
             """);
-            // stmt.executeUpdate("DROP TABLE IF EXISTS products");
-            // stmt.executeUpdate("""
-            //     CREATE TABLE IF NOT EXISTS products
-            //     (
-            //         id INTEGER PRIMARY KEY AUTOINCREMENT,
-            //         name TEXT,
-            //         detail BLOB,
-            //         author TEXT,
-            //         public TEXT,
-            //         type TEXT,
-            //         price DECIMAL,
-            //         quantity INTEGER
-            //     )
-            // """);
+            stmt.executeUpdate("DROP TABLE IF EXISTS products");
+            stmt.executeUpdate("""
+                CREATE TABLE IF NOT EXISTS products
+                (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    name TEXT,
+                    detail BLOB,
+                    author TEXT,
+                    public TEXT,
+                    type TEXT,
+                    price DECIMAL,
+                    quantity INTEGER
+                )
+            """);
         } catch (Exception e) {
             e.printStackTrace();
         }

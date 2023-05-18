@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import samples.db.SelectData;
-import script.Book;
 
 public class updatebookcontroller {
     private Stage stage;
