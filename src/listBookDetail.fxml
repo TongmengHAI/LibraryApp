@@ -292,14 +292,6 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <Button cancelButton="true" layoutX="385.0" layoutY="17.0" mnemonicParsing="false" onAction="#bookBorrowingList" prefHeight="32.0" prefWidth="134.0" style="-fx-background-color: #63C5EA;" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Make Issue">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
                                     <Button cancelButton="true" layoutX="553.0" layoutY="17.0" mnemonicParsing="false" onAction="#borrowBook" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #63C5EA;" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Borrow Book">
                                        <font>
                                           <Font size="15.0" />
