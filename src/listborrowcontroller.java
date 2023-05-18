@@ -1,5 +1,8 @@
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
@@ -15,7 +18,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import samples.db.ConnectDB;
@@ -45,6 +50,8 @@ public class listborrowcontroller implements Initializable{
     @FXML
     TableColumn<BorrowBook,String> returndateColumn = new TableColumn<BorrowBook,String>();
     BorrowBook tempbook = new BorrowBook();
+    @FXML
+    TextField searchBar = new TextField();
     public void initialize(URL url,ResourceBundle resourceBundle){
         idColumn.setCellValueFactory(new PropertyValueFactory<BorrowBook, Integer>("id"));
         booktitleColumn.setCellValueFactory(new PropertyValueFactory<BorrowBook, String>("title"));
@@ -70,6 +77,7 @@ public class listborrowcontroller implements Initializable{
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("returnBook.fxml"));
                             root = loader.load();
                             borrowbookcontroller b = loader.getController();
+                            tempbook.getId();
                             b.setreturnbook(tempbook);
                         }catch(IOException e){
                             e.printStackTrace();
@@ -81,6 +89,26 @@ public class listborrowcontroller implements Initializable{
                     } 
                 });
                 return row;// this doesnt do anything
+            }
+        });
+        // search bar event listener
+        searchBar.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                String text = searchBar.getText();
+                if (text != null) {
+                    tableview.getItems().clear();
+                    try (Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db")) {
+                        String sql = "SELECT * FROM Borrowedbooks WHERE booktitle LIKE ?";
+                        PreparedStatement pst = conn.prepareStatement(sql);
+                        pst.setString(1, "%" + text + "%");
+                        ResultSet rs = pst.executeQuery();
+                        while (rs.next()) {
+                            adddataTotable(rs.getInt(1),rs.getString(7),rs.getString(2),rs.getInt(4),rs.getString(9),rs.getString(10),rs.getString(11));
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
             }
         });
         //initialize table

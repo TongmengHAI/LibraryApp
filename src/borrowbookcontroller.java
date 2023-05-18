@@ -75,7 +75,7 @@ public class borrowbookcontroller implements Initializable{
     
     @FXML
     Button returnbtn = new Button();
-
+    BorrowBook tempbook = new BorrowBook();
     //this is for menubutton selection, has to be a global var else wont work
     String select;
     @Override
@@ -93,9 +93,10 @@ public class borrowbookcontroller implements Initializable{
         dep.setText(b.getDeparment());
         dd.setText(b.getDeadline());
         bd.setText(b.getBorrowdate());
-        id.setText(Integer.toString(b.getId()));
+        id.setText(b.getStudentid());
         gen.setText(b.getGender());
         name.setText(b.getStudentname());
+        tempbook = b;
     }
     public void setdetail(Book b){
         booktitle.setText(b.getName());
@@ -133,7 +134,7 @@ public class borrowbookcontroller implements Initializable{
         LocalDate red = rd.getValue();
         String returndat = red.toString();
         SelectData d = new SelectData();
-        d.updatereturnbook(Integer.parseInt(id.getText()), returndat);
+        d.updatereturnbook(tempbook.getId(), returndat);
         
      }
 

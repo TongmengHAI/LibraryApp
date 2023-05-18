@@ -42,7 +42,7 @@ public class SelectData {
                 BorrowBook b = new BorrowBook();
                 b.setId(rs.getInt(1));
                 b.setStudentname(rs.getString(2));
-                b.setId(rs.getInt(3));
+                b.setStudentid(rs.getString(3));
                 b.setGender(rs.getString(4));
                 b.setDepartment(rs.getString(5));
                 b.setTitle(rs.getString(7));
@@ -57,13 +57,43 @@ public class SelectData {
         return null;
     }
     public void updatereturnbook(int id,String rd){
-        String sql = "UPDATE Borrowedbooks SET studentname = ?, studentid = ?, gender = ?, department = ?, year = ?, booktitle = ?, bookid = ?, borrowdate = ?, deadline = ?, returndate = ? WHERE id = ?";
+        String sql = "UPDATE `Borrowedbooks` SET" 
+                    +" `returndate` = ? WHERE id = "+"'"+ (id) + "'";
         try(Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db");
         PreparedStatement pst = conn.prepareStatement(sql)){
-            pst.setString(11, rd);
-            pst.setInt(2,id);
+            System.out.println(id);
+            pst.setString(1, rd);
             int ra = pst.executeUpdate();
-            if(ra >0){
+
+            if(ra >0){//tell if update successful
+                System.out.println("success");//code doesnt work at all
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void updatereturnbook2(Book b){
+        String sql = "UPDATE `products` SET" 
+                    +"`name` = ?," 
+                    +"`detail` = ?,"
+                    +" `author` = ?,"
+                    +" `public` = ?,"
+                    +" `type` = ?,"
+                    +" `price` = ?,"
+                    +" `quantity` = ? WHERE id = "+"'"+ (b.getId()) + "'";
+        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db");
+        PreparedStatement pst = conn.prepareStatement(sql)){
+            pst.setString(1, b.getName());
+            pst.setString(2, b.getDetail());
+            pst.setString(3, b.getAuthor());
+            pst.setString(4, b.getPublis());
+            pst.setString(5, b.getType());
+            pst.setDouble(6, b.getPrice());
+            pst.setInt(7, b.getQnt());
+            System.out.println(b.getName());
+            int ra = pst.executeUpdate();
+
+            if(ra >0){//tell if update successful
                 System.out.println("success");//code doesnt work at all
             }
         }catch(SQLException e){

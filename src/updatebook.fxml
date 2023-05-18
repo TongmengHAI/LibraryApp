@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="updatebookcontroller">
    <children>
       <AnchorPane prefHeight="119.0" prefWidth="1080.0" AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -98,17 +98,6 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Issue Book" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="sideBar_hover" />
-                  <String fx:value="sideBar_background" />
-               </styleClass>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
             <Button mnemonicParsing="false" onAction="#logout" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Log Out" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
@@ -144,7 +133,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="30.0" prefWidth="246.0">
+                        <TextField fx:id="name" prefHeight="30.0" prefWidth="246.0">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -158,7 +147,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="30.0" prefWidth="246.0">
+                        <TextField fx:id="id" prefHeight="30.0" prefWidth="246.0">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -177,7 +166,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="30.0" prefWidth="246.0">
+                              <TextField fx:id="detail" prefHeight="30.0" prefWidth="246.0">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
@@ -188,12 +177,12 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="453.0">
                      <children>
-                        <Label text="Autor :">
+                        <Label text="Author :">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="30.0" prefWidth="246.0">
+                        <TextField fx:id="author" prefHeight="30.0" prefWidth="246.0">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -207,7 +196,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="30.0" prefWidth="246.0">
+                        <TextField fx:id="publis" prefHeight="30.0" prefWidth="246.0">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -221,7 +210,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="30.0" prefWidth="246.0">
+                        <TextField fx:id="type" prefHeight="30.0" prefWidth="246.0">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -235,35 +224,35 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="30.0" prefWidth="246.0">
+                        <TextField fx:id="price" prefHeight="30.0" prefWidth="246.0">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" layoutX="41.0" layoutY="255.0" prefHeight="39.0" prefWidth="453.0">
+                  <HBox alignment="CENTER" layoutX="41.0" layoutY="255.0" prefHeight="39.0" prefWidth="453.0">
                      <children>
-                        <Label text="Book Photo :">
+                        <Label text="Book Photo : ">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField onAction="#chooseImg" prefHeight="30.0" prefWidth="246.0">
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </TextField>
+                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="92.0" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Choose file">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <Button layoutX="579.0" layoutY="463.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Update">
+            <Button layoutX="579.0" layoutY="463.0" mnemonicParsing="false" onAction="#update" prefHeight="35.0" prefWidth="82.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Update">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="305.0" layoutY="463.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Back">
+            <Button layoutX="305.0" layoutY="463.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="82.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Back">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
