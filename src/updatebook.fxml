@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
    <children>
       <AnchorPane prefHeight="119.0" prefWidth="1080.0" AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -54,7 +54,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Borrow Book" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#bookBorrowingList" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Borrow Book" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -109,7 +109,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Log Out" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#logout" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Log Out" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -132,14 +132,14 @@
                      </font>
                   </Text>
                </children></AnchorPane>
-            <VBox layoutX="174.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="436.0" prefWidth="515.0" styleClass="container-deatail-border_radius" stylesheets="@script/css/makecopyStyle.css" AnchorPane.bottomAnchor="43.0" AnchorPane.topAnchor="95.0">
+            <VBox layoutX="174.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="449.0" prefWidth="515.0" styleClass="container-deatail-border_radius" stylesheets="@script/css/makecopyStyle.css" AnchorPane.bottomAnchor="40.0" AnchorPane.topAnchor="85.0">
                <padding>
                   <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
                </padding>
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="453.0">
                      <children>
-                        <Label text="Book Name :">
+                        <Label text="Book name :">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -165,18 +165,25 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="453.0">
+                  <HBox alignment="CENTER" prefHeight="39.0" prefWidth="453.0" spacing="25.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                      <children>
-                        <Label text="Detail :">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <TextField prefHeight="30.0" prefWidth="246.0">
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </TextField>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="453.0">
+                           <children>
+                              <Label text="Detail :">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="30.0" prefWidth="246.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="453.0">
@@ -221,51 +228,42 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="453.0">
+                  <HBox alignment="CENTER_RIGHT" layoutX="41.0" layoutY="216.0" prefHeight="39.0" prefWidth="453.0">
                      <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="453.0">
-                           <children>
-                              <Label text="Price :">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField prefHeight="30.0" prefWidth="246.0">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </TextField>
-                           </children>
-                        </HBox>
+                        <Label text="Price :">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField prefHeight="30.0" prefWidth="246.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </TextField>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="453.0">
+                  <HBox alignment="CENTER_RIGHT" layoutX="41.0" layoutY="255.0" prefHeight="39.0" prefWidth="453.0">
                      <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="453.0">
-                           <children>
-                              <Label text="Book Photo :">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField prefHeight="30.0" prefWidth="246.0">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </TextField>
-                           </children>
-                        </HBox>
+                        <Label text="Book Photo :">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField onAction="#chooseImg" prefHeight="30.0" prefWidth="246.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </TextField>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="39.0" prefWidth="453.0" />
                </children>
             </VBox>
-            <Button layoutX="534.0" layoutY="458.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Update">
+            <Button layoutX="579.0" layoutY="463.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Update">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="300.0" layoutY="458.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Back">
+            <Button layoutX="305.0" layoutY="463.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" styleClass="btn-copy-color" stylesheets="@script/css/makecopyStyle.css" text="Back">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -276,4 +274,4 @@
          </padding>
       </AnchorPane>
    </children>
-</fx:root>
+</AnchorPane>

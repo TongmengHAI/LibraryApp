@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
    <children>
-      <AnchorPane AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="7.0" AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="321.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="641.0" AnchorPane.topAnchor="17.0">
                <image>
@@ -80,7 +80,11 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
+<<<<<<< HEAD
             <Button mnemonicParsing="false" onAction="#UpdateBook" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Update Book" textFill="WHITE">
+=======
+            <Button mnemonicParsing="false" onAction="#updateBook" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Update Book" textFill="WHITE">
+>>>>>>> 89671eff65d1c60c513cf2daba6e9fb67e365985
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -102,7 +106,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Log Out" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#logout" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Log Out" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>

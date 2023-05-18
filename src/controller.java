@@ -1,8 +1,6 @@
 
 import java.io.File;
 import java.io.IOException;
-
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -11,21 +9,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafx.scene.Node;
 import java.net.URL;
-import java.security.spec.ECField;
 import java.util.ResourceBundle;
 
 import samples.db.ConnectDB;
@@ -54,9 +48,11 @@ public class controller implements Initializable {
     private TableColumn<Book, String> typeColumn = new TableColumn<Book, String>();
     @FXML
     private TableColumn<Book, String> authorColumn = new TableColumn<Book, String>();
+    
 
+    Book tempbook = new Book();
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {// initialize the table value
+    public void initialize(URL url, ResourceBundle resourceBundle){// initialize the table value
         idColumn.setCellValueFactory(new PropertyValueFactory<Book, Integer>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("name"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<Book, Double>("price"));
@@ -69,6 +65,36 @@ public class controller implements Initializable {
         } catch (Exception e) {
             System.out.println(e);
         }
+        //set table row click event
+        tableview.setRowFactory(new Callback<TableView<Book>,TableRow<Book>>(){
+            @Override
+            public TableRow<Book> call(TableView<Book> tableview){
+                TableRow<Book> row = new TableRow<Book>();
+                row.setOnMouseClicked(event->{
+                    if(event.getClickCount()==2 && !row.isEmpty()){
+                        tempbook = row.getItem();// get the data from the row and give it to tempbook obj
+                        //what happen after clicking the row, code
+                        SelectData d = new SelectData();
+                        tempbook = d.findbook(tempbook.getId());
+                        try{
+                            
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("listBookDetail.fxml"));
+                            root = loader.load();
+                            bookdetailcontroller bd = loader.getController();
+                            bd.setdetail(tempbook);
+                        }catch(IOException e){
+                            e.printStackTrace();
+                        }
+                        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
+                    } 
+                });
+                return row;// this doesnt do anything
+            }
+        });
+
         // search bar event listener
         searchBar.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
@@ -91,7 +117,8 @@ public class controller implements Initializable {
             }
         });
     }
-
+    
+    
     public void autolistbook() throws IOException {
         try (ResultSet rs = ConnectDB.getConnection().execute("SELECT * FROM products")) {
             while (rs.next()) {
@@ -113,6 +140,14 @@ public class controller implements Initializable {
     // list book
     public void listbook(Event event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("listbook.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    // List book Detail
+    public void listBookDetail(Event event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("listBookDetail.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -142,6 +177,7 @@ public class controller implements Initializable {
 
     // borrow book form
     public void borrowBook(ActionEvent event) throws IOException {
+        
         root = FXMLLoader.load(getClass().getResource("borrowBook.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -152,15 +188,6 @@ public class controller implements Initializable {
     // book borrowing
     public void bookBorrowingList(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("borrowingList.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    // return book
-    public void bookBorrowingDetail(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("returnBook.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -178,15 +205,27 @@ public class controller implements Initializable {
 
     public void chooseImg(ActionEvent event) throws IOException {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89671eff65d1c60c513cf2daba6e9fb67e365985
         FileChooser fc = new FileChooser();
         File file = fc.showOpenDialog(stage);
         System.out.println(file);
 
     }
 
+    // Log out book
+    public void logout(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("Logout.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     // Update book
-    public void UpdateBook(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("UpdateBook.fxml"));
+    public void updateBook(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("updatebook.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

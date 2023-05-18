@@ -7,6 +7,11 @@ public class Book {
     private int qnt;
     private String type;
     private String author;
+    private String detail;
+    private String publis;
+    public Book(){
+        
+    }
     public Book(int id,String n, double p,int q,String t,String a){
         this.id = id;
         this.name = n;
@@ -15,8 +20,30 @@ public class Book {
         this.type = t;
         this.author = a;
     }
+    public Book(int id,String n, double p,int q,String t,String a,String d,String pu){
+        this.id = id;
+        this.name = n;
+        this.price = p;
+        this.qnt=q;
+        this.type = t;
+        this.author = a;
+        this.publis = pu;
+        this.detail =d;
+    }
+    public String getPublis(){
+        return publis;
+    }
+    public String getDetail(){
+        return detail;
+    }
     public String getAuthor(){
         return author;
+    }
+    public void setDetail(String d){
+        this.detail =d;
+    }
+    public void setPublis(String i){
+        this.publis = i;
     }
     public void setAuthor(String a){
         this.author = a;
