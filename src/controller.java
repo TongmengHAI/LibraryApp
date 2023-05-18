@@ -196,7 +196,10 @@ public class controller implements Initializable {
 
     public void chooseImg(ActionEvent event) throws IOException {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+<<<<<<< HEAD
+=======
 
+>>>>>>> 89671eff65d1c60c513cf2daba6e9fb67e365985
         FileChooser fc = new FileChooser();
         File file = fc.showOpenDialog(stage);
         System.out.println(file);

@@ -23,6 +23,7 @@ public class ConnectDB implements Closeable {
         if(conn.isError()) System.err.println(conn.exception);
         conn.close();
     }
+    
     public static ConnectDB getConnection() {
         if(instance != null) return instance;
         Connection conn = null;
