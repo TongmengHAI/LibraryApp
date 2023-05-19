@@ -25,6 +25,7 @@ public class SelectData {
                 b.setPrice(rs.getDouble(7));
                 b.setQnt(rs.getInt(8));
                 b.setType(rs.getString(6));
+                b.setImage(rs.getString(9));
                 return b;
             }
         }catch(Exception e){
@@ -36,7 +37,6 @@ public class SelectData {
         String sql = "SELECT * FROM Borrowedbooks WHERE id = "+id;
         try(Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db");
         PreparedStatement pst = conn.prepareStatement(sql)){
-            // pst.setInt(1,id);
             ResultSet rs = pst.executeQuery();
             if(rs.next()){
                 BorrowBook b = new BorrowBook();
@@ -49,6 +49,7 @@ public class SelectData {
                 b.setBorrowdate(rs.getString(9));
                 b.setDeadline(rs.getString(10));
                 b.setReturndate(rs.getString(11));
+                b.setImg(rs.getString(12));
                 return b;
             }
         }catch(Exception e){
@@ -80,7 +81,8 @@ public class SelectData {
                     +" `public` = ?,"
                     +" `type` = ?,"
                     +" `price` = ?,"
-                    +" `quantity` = ? WHERE id = "+"'"+ (b.getId()) + "'";
+                    +" `quantity` = ?," 
+                    +" `image` = ? WHERE id = "+"'"+ (b.getId()) + "'";
         try(Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db");
         PreparedStatement pst = conn.prepareStatement(sql)){
             pst.setString(1, b.getName());
@@ -90,6 +92,7 @@ public class SelectData {
             pst.setString(5, b.getType());
             pst.setDouble(6, b.getPrice());
             pst.setInt(7, b.getQnt());
+            pst.setString(8,b.getImage());
             System.out.println(b.getName());
             int ra = pst.executeUpdate();
 

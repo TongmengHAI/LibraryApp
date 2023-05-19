@@ -238,7 +238,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="92.0" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Choose file">
+                        <Button mnemonicParsing="false" onAction="#chooseimg" prefHeight="31.0" prefWidth="92.0" styleClass="content-hover" stylesheets="@script/css/makecopyStyle.css" text="Choose file">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

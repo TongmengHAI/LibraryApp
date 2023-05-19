@@ -17,6 +17,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import samples.db.InsertData;
 import samples.db.SelectData;
@@ -78,6 +80,9 @@ public class borrowbookcontroller implements Initializable{
     BorrowBook tempbook = new BorrowBook();
     //this is for menubutton selection, has to be a global var else wont work
     String select;
+    @FXML
+    ImageView imgview = new ImageView();
+    String image;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gendermale.setOnAction(event ->{
@@ -96,11 +101,18 @@ public class borrowbookcontroller implements Initializable{
         id.setText(b.getStudentid());
         gen.setText(b.getGender());
         name.setText(b.getStudentname());
+        try{
+            Image im = new Image("./asset/bookcover/"+b.getImg());
+            imgview.setImage(im);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         tempbook = b;
     }
     public void setdetail(Book b){
         booktitle.setText(b.getName());
         bookid.setText(Integer.toString(b.getId()));
+        image = b.getImage();
     }
     public void borrow(ActionEvent event)throws IOException{
         gender.setText("Select");
@@ -124,7 +136,7 @@ public class borrowbookcontroller implements Initializable{
             e.printStackTrace();
         }
         try{
-            d.insert2(studname,studid,gend,dep,y,bookt,booki,borrowd,returnd);
+            d.insert3(studname,studid,gend,dep,y,bookt,booki,borrowd,returnd,image);
             alert.setText("Success");
         }catch(Exception e){
             e.printStackTrace();

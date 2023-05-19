@@ -2,9 +2,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import script.Book;
+
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -34,6 +40,32 @@ public class updatebookcontroller {
     TextField price = new TextField();
     @FXML
     Button img = new Button();
+    String image;
+    public void chooseimg(ActionEvent event){
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        FileChooser fc = new FileChooser();
+        File file = fc.showOpenDialog(stage);
+        if(file !=null){
+            
+            String destination = "./src/asset/bookcover";
+            try{
+                File destinationfolder = new File(destination);
+                if(!destinationfolder.exists()){
+                    destinationfolder.mkdirs();
+                }
+                String destinationfilepath = destination + File.separator + file.getName();
+                Files.copy(file.toPath(), new File(destinationfilepath).toPath(), StandardCopyOption.REPLACE_EXISTING);
+                //delete old image
+                File delfile = new File(destination+"/"+image);
+                delfile.delete();
+                image = file.getName();
+
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
+        
+    }
 
     public void setdetail(Book b){
         name.setText(b.getName());
@@ -43,6 +75,8 @@ public class updatebookcontroller {
         publis.setText(b.getPublis());
         type.setText(b.getType());
         price.setText(Double.toString(b.getPrice()));
+        image = b.getImage();
+        tempbook = b;
     }
     public void update(ActionEvent event){
         SelectData sd = new SelectData();
@@ -53,6 +87,7 @@ public class updatebookcontroller {
         tempbook.setPublis(publis.getText());
         tempbook.setType(type.getText());
         tempbook.setPrice(Double.parseDouble(price.getText()));
+        tempbook.setImage(image);
     
         sd.updatereturnbook2(tempbook);
     }

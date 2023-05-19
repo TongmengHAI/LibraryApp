@@ -12,6 +12,7 @@ public class BorrowBook {
     private String deadline;
     private String returndate;
     private int bookid;
+    private String img;
 
     public BorrowBook(){}
     public BorrowBook(int a,String b, String c, int d, String e, String f,String g){
@@ -23,7 +24,7 @@ public class BorrowBook {
         this.deadline = f;
         this.returndate = g;
     }
-    public BorrowBook(int a,String b, String c, int d, String e, String f,String g,String h,int i,String j){
+    public BorrowBook(int a,String b, String c, int d, String e, String f,String g,String h,int i,String j,String k){
         this.id = a;
         this.title = b;
         this.studentname = c;
@@ -34,7 +35,12 @@ public class BorrowBook {
         this.department = h;
         this.bookid = i;
         this.studentid = j;
+        this.img = k;
     }
+    public void setImg(String k){
+        this.img = k;
+    }
+    public String getImg(){return img;}
     public String getStudentid(){return studentid;}
     public void setStudentid(String i){
         this.studentid = i;

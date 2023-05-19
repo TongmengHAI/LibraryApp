@@ -48,7 +48,7 @@ public class copybookdetail {
     public void copybook(ActionEvent event) throws IOException{
         InsertData i = new InsertData();
         if(tempbook != null){
-            i.insert(tempbook.getName(), tempbook.getDetail(), tempbook.getAuthor(), tempbook.getPublis(), tempbook.getType(), tempbook.getPrice(), tempbook.getQnt());
+            i.insert(tempbook.getName(), tempbook.getDetail(), tempbook.getAuthor(), tempbook.getPublis(), tempbook.getType(), tempbook.getPrice(), tempbook.getQnt(),tempbook.getImage());
             root = FXMLLoader.load(getClass().getResource("copyBookList.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);

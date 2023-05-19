@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import script.Book;
@@ -34,6 +36,9 @@ public class bookdetailcontroller {
     Text qntLabel = new Text();
     @FXML 
     Text detailLabel = new Text();
+    @FXML
+    ImageView imageview = new ImageView();
+
     Book tempbook = new Book();
 
     public void setdetail(Book b){
@@ -45,6 +50,12 @@ public class bookdetailcontroller {
         priceLabel.setText(Double.toString(b.getPrice())+"$");
         qntLabel.setText(Integer.toString(b.getQnt()));
         detailLabel.setText(b.getDetail());
+        try{
+            Image im = new Image("./asset/bookcover/"+b.getImage());
+            imageview.setImage(im);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         tempbook=b;
     }
 

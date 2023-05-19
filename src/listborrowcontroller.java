@@ -77,7 +77,6 @@ public class listborrowcontroller implements Initializable{
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("returnBook.fxml"));
                             root = loader.load();
                             borrowbookcontroller b = loader.getController();
-                            tempbook.getId();
                             b.setreturnbook(tempbook);
                         }catch(IOException e){
                             e.printStackTrace();
@@ -121,7 +120,7 @@ public class listborrowcontroller implements Initializable{
     public void autolistdata() throws IOException {
         try (ResultSet rs = ConnectDB.getConnection().execute("SELECT * FROM Borrowedbooks")) {
             while (rs.next()) {
-                adddataTotable(rs.getInt(1),rs.getString(7),rs.getString(2),rs.getInt(4),rs.getString(9),rs.getString(10),rs.getString(11));
+                adddataTotable(rs.getInt(1),rs.getString(7),rs.getString(2),1,rs.getString(9),rs.getString(10),rs.getString(11));
             }
         } catch (Exception ex) {
             ex.printStackTrace();

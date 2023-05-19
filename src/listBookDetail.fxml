@@ -2,6 +2,7 @@
 
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -65,7 +66,7 @@
                   <String fx:value="sideBar_hover" />
                   <String fx:value="sideBar_background" />
                </styleClass></Button>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Book Borrowing" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#bookBorrowingList" prefHeight="51.0" prefWidth="178.0" stylesheets="@script/css/makecopyStyle.css" text="Book Borrowing" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -123,42 +124,41 @@
                </children></AnchorPane>
             <VBox layoutX="14.0" layoutY="75.0" prefHeight="488.0" prefWidth="834.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="75.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="369.0" prefWidth="834.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="369.0" prefWidth="834.0">
                      <children>
-                        <VBox prefHeight="369.0" prefWidth="250.0">
+                        <VBox alignment="CENTER" cacheShape="false" centerShape="false" prefHeight="370.0" prefWidth="297.0" scaleShape="false">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="413.0">
+                              <HBox alignment="TOP_CENTER" prefHeight="43.0" prefWidth="299.0">
                                  <children>
                                     <Label text="Title: ">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="titleLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="######" wrappingWidth="196.27234268188477">
+                                    <Text fx:id="titleLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="######" wrappingWidth="231.47235488891602">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER" prefHeight="327.0" prefWidth="271.0">
-                                 <children>
-                                    <ImageView fitHeight="327.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@asset/memory_cover-book.jpg" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
+                              <ImageView fx:id="imageview" fitHeight="327.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
+                                 <image>
+                                    <Image url="@asset/memory_cover-book.jpg" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
                            </children>
                         </VBox>
-                        <VBox prefHeight="246.0" prefWidth="278.0">
+                        <VBox prefHeight="370.0" prefWidth="524.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
                                     <Label text="ID :">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
                                     <Text fx:id="idLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
@@ -172,7 +172,7 @@
                                  <children>
                                     <Label text="Author :">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
                                     <Text fx:id="authorLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
@@ -186,7 +186,7 @@
                                  <children>
                                     <Label text="Public :">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
                                     <Text fx:id="publicLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
@@ -200,7 +200,7 @@
                                  <children>
                                     <Label text="Type :">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
                                     <Text fx:id="typeLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
@@ -214,7 +214,7 @@
                                  <children>
                                     <Label text="Price :">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
                                     <Text fx:id="priceLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
@@ -228,7 +228,7 @@
                                  <children>
                                     <Label text="Quantity :">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
                                     <Text fx:id="qntLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############">
@@ -238,14 +238,14 @@
                                     </Text>
                                  </children>
                               </HBox>
-                              <HBox prefHeight="83.0" prefWidth="278.0" spacing="20.0">
+                              <HBox prefHeight="83.0" prefWidth="304.0" spacing="20.0">
                                  <children>
                                     <Label text="Description:">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="detailLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############" wrappingWidth="167.53460693359375">
+                                    <Text fx:id="detailLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="###############" wrappingWidth="405.1346130371094">
                                        <font>
                                           <Font size="15.0" />
                                        </font>

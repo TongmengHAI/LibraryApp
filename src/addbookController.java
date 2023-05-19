@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 
 import javafx.event.ActionEvent;
@@ -36,12 +38,13 @@ public class addbookController {
     TextField quantityField = new TextField();
     @FXML
     TextArea detailField = new TextArea();
-
+    String imgname;
     
     public void insertBook(ActionEvent event)throws IOException{
         String title = titleField.getText(); titleField.clear();
         String author = authorField.getText(); authorField.clear();
         String type = typeField.getText(); typeField.clear();
+        
         String publis;
         try{//add try catch to catch error but not brick the entire function  
         LocalDate publish = publisField.getValue(); publisField.setValue(null);
@@ -56,7 +59,7 @@ public class addbookController {
         String detail = detailField.getText();detailField.clear();
         InsertData db = new InsertData();
         try{
-            db.insert(title, detail, author, publis, type, price, quantity);
+            db.insert(title, detail, author, publis, type, price, quantity,imgname);
             alert.setText("Book Added");
         }catch(Exception e){
             alert.setText("error");
@@ -77,7 +80,23 @@ public class addbookController {
         
         FileChooser fc = new FileChooser();
         File file = fc.showOpenDialog(stage);
-        System.out.println(file);
+        if(file !=null){
+            
+            String destination = "./src/asset/bookcover";
+            try{
+                File destinationfolder = new File(destination);
+                if(!destinationfolder.exists()){
+                    destinationfolder.mkdirs();
+                }
+                String destinationfilepath = destination + File.separator + file.getName();
+                Files.copy(file.toPath(), new File(destinationfilepath).toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("copied to "+destinationfilepath);
+                imgname = file.getName();
+
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
 
     }
     public void listbook(Event event)throws IOException{

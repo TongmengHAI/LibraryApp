@@ -124,18 +124,18 @@
                </children></AnchorPane>
             <VBox layoutX="14.0" layoutY="75.0" prefHeight="488.0" prefWidth="834.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="75.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="369.0" prefWidth="834.0">
+                  <HBox alignment="CENTER" prefHeight="369.0" prefWidth="834.0" VBox.vgrow="NEVER">
                      <children>
-                        <VBox prefHeight="369.0" prefWidth="250.0">
+                        <VBox alignment="CENTER_LEFT" cacheShape="false" centerShape="false" fillWidth="false" prefHeight="369.0" prefWidth="250.0" scaleShape="false">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="413.0">
+                              <HBox prefHeight="50.0" prefWidth="413.0">
                                  <children>
                                     <Label text="Title: ">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="######" wrappingWidth="105.87237930297852">
+                                    <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="######" wrappingWidth="196.27243423461914">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -144,7 +144,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="327.0" prefWidth="271.0">
                                  <children>
-                                    <ImageView fitHeight="327.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imgview" fitHeight="327.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@asset/memory_cover-book.jpg" />
                                        </image>
@@ -152,8 +152,11 @@
                                  </children>
                               </HBox>
                            </children>
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
                         </VBox>
-                        <VBox prefHeight="369.0" prefWidth="278.0">
+                        <VBox prefHeight="363.0" prefWidth="362.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="278.0" spacing="20.0">
                                  <children>
@@ -243,7 +246,7 @@
                                  <children>
                                     <Label text="Return date:">
                                        <font>
-                                          <Font size="15.0" />
+                                          <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Label>
                                     <DatePicker fx:id="rd" prefHeight="25.0" prefWidth="133.0" />

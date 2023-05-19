@@ -9,6 +9,7 @@ public class Book {
     private String author;
     private String detail;
     private String publis;
+    private String img;
     public Book(){
         
     }
@@ -20,7 +21,7 @@ public class Book {
         this.type = t;
         this.author = a;
     }
-    public Book(int id,String n, double p,int q,String t,String a,String d,String pu){
+    public Book(int id,String n, double p,int q,String t,String a,String d,String pu,String im){
         this.id = id;
         this.name = n;
         this.price = p;
@@ -29,7 +30,10 @@ public class Book {
         this.author = a;
         this.publis = pu;
         this.detail =d;
+        this.img = im;
     }
+    public String getImage(){return img;}
+    public void setImage(String i){this.img = i;}
     public String getPublis(){
         return publis;
     }

@@ -24,7 +24,8 @@ public class CreateProductTable {
                     bookid INTEGER,
                     borrowdate TEXT,
                     deadline TEXT,
-                    returndate TEXT
+                    returndate TEXT,
+                    img TEXT
                 )
             """);
             stmt.executeUpdate("DROP TABLE IF EXISTS products");
@@ -38,7 +39,8 @@ public class CreateProductTable {
                     public TEXT,
                     type TEXT,
                     price DECIMAL,
-                    quantity INTEGER
+                    quantity INTEGER,
+                    image TEXT
                 )
             """);
         } catch (Exception e) {
