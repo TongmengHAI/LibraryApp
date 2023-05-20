@@ -53,7 +53,7 @@
                   <Text fx:id="a" fill="#ea2106" layoutX="275.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="136.0001220703125" />
                </children>
             </Pane>
-            <Text layoutX="285.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Library" wrappingWidth="143.91552734375" AnchorPane.rightAnchor="171.08447265625" AnchorPane.topAnchor="38.7880859375">
+            <Text layoutX="228.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Library" wrappingWidth="143.91552734375" AnchorPane.bottomAnchor="315.2119140625" AnchorPane.leftAnchor="227.91552734375" AnchorPane.rightAnchor="228.08447265625" AnchorPane.topAnchor="31.9150390625">
                <font>
                   <Font name="System Bold" size="39.0" />
                </font>
