@@ -9,7 +9,8 @@
             "name": "ConnectDB",
             "request": "launch",
             "mainClass": "samples.db.ConnectDB",
-            "projectName": "LibraryApp_20485068"
+            "projectName": "LibraryApp_20485068",
+            "vmArgs": "--module-path ${workspaceFolder}/lib/javafx-sdk-20/lib --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",

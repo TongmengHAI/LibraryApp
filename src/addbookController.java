@@ -61,16 +61,11 @@ public class addbookController {
         try{
             db.insert(title, detail, author, publis, type, price, quantity,imgname);
             alert.setText("Book Added");
+            
         }catch(Exception e){
             alert.setText("error");
             System.out.println(e);
         }
-        try{ 
-            Thread.sleep(1000);
-        }catch(InterruptedException e){
-            e.printStackTrace();
-        }
-        alert.setText(null);
     }
 
 

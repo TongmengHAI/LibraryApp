@@ -2,6 +2,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import script.Book;
@@ -40,6 +41,8 @@ public class updatebookcontroller {
     TextField price = new TextField();
     @FXML
     Button img = new Button();
+    @FXML
+    Text txt = new Text();
     String image;
     public void chooseimg(ActionEvent event){
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -90,6 +93,7 @@ public class updatebookcontroller {
         tempbook.setImage(image);
     
         sd.updatereturnbook2(tempbook);
+        txt.setText("Update Success");
     }
     public void back(ActionEvent event)throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("listBookDetail.fxml"));

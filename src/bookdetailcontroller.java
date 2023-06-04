@@ -43,7 +43,7 @@ public class bookdetailcontroller {
 
     public void setdetail(Book b){
         titleLabel.setText(b.getName());
-        idLabel.setText(Integer.toBinaryString(b.getId()));
+        idLabel.setText(Integer.toString(b.getId()));
         authorLabel.setText(b.getAuthor());
         publicLabel.setText(b.getPublis());
         typeLabel.setText(b.getType());

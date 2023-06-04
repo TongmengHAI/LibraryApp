@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="updatebookcontroller">
    <children>
-      <AnchorPane prefHeight="119.0" prefWidth="1080.0" AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="-42.0" prefHeight="119.0" prefWidth="1080.0" AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="-42.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="321.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="641.0" AnchorPane.topAnchor="17.0">
                <image>
@@ -111,7 +111,7 @@
                </styleClass></Button>
          </children>
       </VBox>
-      <AnchorPane layoutX="218.0" layoutY="141.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="574.0" prefWidth="862.0" style="-fx-background-color: C6F4CA;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="218.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="141.0">
+      <AnchorPane fx:id="alert" layoutX="218.0" layoutY="141.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="574.0" prefWidth="862.0" style="-fx-background-color: C6F4CA;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="218.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="141.0">
          <children>
             <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="844.0" style="-fx-background-color: #B4C640;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="10.0">
                <children>
@@ -257,6 +257,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Text fx:id="alert" fill="RED" layoutX="704.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
