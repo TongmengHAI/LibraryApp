@@ -121,7 +121,7 @@
                      </font>
                   </Text>
                </children></AnchorPane>
-            <TextField fx:id="searchBar" layoutX="14.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="209.0" prefHeight="28.0" prefWidth="209.0" promptText="search Book or ID" style="-fx-background-color: C6F4CA;" stylesheets="@script/css/makecopyStyle.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="639.0" AnchorPane.topAnchor="87.0">
+            <TextField fx:id="searchBar" layoutX="14.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="209.0" prefHeight="28.0" prefWidth="209.0" promptText="Search Book Name" style="-fx-background-color: C6F4CA;" stylesheets="@script/css/makecopyStyle.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="639.0" AnchorPane.topAnchor="87.0">
                <styleClass>
                   <String fx:value="round-layout" />
                   <String fx:value="white-background" />

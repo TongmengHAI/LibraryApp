@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -148,7 +149,7 @@ public class controller implements Initializable {
     @FXML
     TextField username = new TextField();
     @FXML
-    TextField password = new TextField();
+    PasswordField password = new PasswordField();
     @FXML 
     Text a = new Text();
     public void listbook2(Event event) throws IOException{
