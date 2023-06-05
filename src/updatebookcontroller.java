@@ -22,8 +22,8 @@ import samples.db.SelectData;
 public class updatebookcontroller {
     private Stage stage;
     private Scene scene;
-    private Parent  root;
-    Book tempbook  = new Book();
+    private Parent root;
+    Book tempbook = new Book();
 
     @FXML
     TextField name = new TextField();
@@ -44,33 +44,34 @@ public class updatebookcontroller {
     @FXML
     Text txt = new Text();
     String image;
-    public void chooseimg(ActionEvent event){
+
+    public void chooseimg(ActionEvent event) {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FileChooser fc = new FileChooser();
         File file = fc.showOpenDialog(stage);
-        if(file !=null){
-            
+        if (file != null) {
+
             String destination = "./src/asset/bookcover";
-            try{
+            try {
                 File destinationfolder = new File(destination);
-                if(!destinationfolder.exists()){
+                if (!destinationfolder.exists()) {
                     destinationfolder.mkdirs();
                 }
                 String destinationfilepath = destination + File.separator + file.getName();
                 Files.copy(file.toPath(), new File(destinationfilepath).toPath(), StandardCopyOption.REPLACE_EXISTING);
-                //delete old image
-                File delfile = new File(destination+"/"+image);
+                // delete old image
+                File delfile = new File(destination + "/" + image);
                 delfile.delete();
                 image = file.getName();
 
-            }catch(IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        
+
     }
 
-    public void setdetail(Book b){
+    public void setdetail(Book b) {
         name.setText(b.getName());
         id.setText(Integer.toString(b.getId()));
         detail.setText(b.getDetail());
@@ -81,7 +82,8 @@ public class updatebookcontroller {
         image = b.getImage();
         tempbook = b;
     }
-    public void update(ActionEvent event){
+
+    public void update(ActionEvent event) {
         SelectData sd = new SelectData();
         tempbook.setId(Integer.parseInt(id.getText()));
         tempbook.setName(name.getText());
@@ -91,11 +93,12 @@ public class updatebookcontroller {
         tempbook.setType(type.getText());
         tempbook.setPrice(Double.parseDouble(price.getText()));
         tempbook.setImage(image);
-    
+
         sd.updatereturnbook2(tempbook);
         txt.setText("Update Success");
     }
-    public void back(ActionEvent event)throws IOException{
+
+    public void back(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("listBookDetail.fxml"));
         root = loader.load();
         bookdetailcontroller bd = loader.getController();
@@ -105,6 +108,7 @@ public class updatebookcontroller {
         stage.setScene(scene);
         stage.show();
     }
+
     // list book
     public void listbook(Event event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("listbook.fxml"));
@@ -113,6 +117,7 @@ public class updatebookcontroller {
         stage.setScene(scene);
         stage.show();
     }
+
     public void makeCopyList(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("copyBookList.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -123,7 +128,7 @@ public class updatebookcontroller {
 
     // borrow book form
     public void borrowBook(ActionEvent event) throws IOException {
-        
+
         root = FXMLLoader.load(getClass().getResource("borrowBook.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
