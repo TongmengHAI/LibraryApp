@@ -142,16 +142,16 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="453.0">
                      <children>
-                        <Label text="Book ID :">
+                        <Label prefHeight="21.0" prefWidth="81.0" text="Book ID :">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="id" prefHeight="30.0" prefWidth="246.0">
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </TextField>
+                        <Text fx:id="id" strokeType="OUTSIDE" strokeWidth="0.0" text=" " wrappingWidth="246.9306640625">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="39.0" prefWidth="453.0" spacing="25.0">
