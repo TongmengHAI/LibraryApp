@@ -147,11 +147,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Text fx:id="id" strokeType="OUTSIDE" strokeWidth="0.0" text=" " wrappingWidth="246.9306640625">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Text>
+                        <TextField fx:id="id" prefHeight="30.0" prefWidth="246.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="39.0" prefWidth="453.0" spacing="25.0">

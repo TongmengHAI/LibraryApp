@@ -28,7 +28,7 @@ public class updatebookcontroller {
     @FXML
     TextField name = new TextField();
     @FXML
-    Text id = new Text();
+    TextField id = new TextField();
     @FXML
     TextField detail = new TextField();
     @FXML
