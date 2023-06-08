@@ -7,8 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+// import javafx.scene.control.TextArea;
+// import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.scene.Node;
 import samples.db.InsertData;
@@ -18,21 +18,21 @@ public class copybookdetail {
     private Parent root;
     //copybookdetail
     @FXML
-    TextField title =  new TextField();
+    Text title =  new Text();
     @FXML
     Text id = new Text();
     @FXML
-    TextField author = new TextField();
+    Text author = new Text();
     @FXML
-    TextField price = new TextField();
+    Text price = new Text();
     @FXML
-    TextField publis = new TextField();
+    Text publis = new Text();
     @FXML
-    TextField type = new TextField();
+    Text type = new Text();
     @FXML
-    TextField qnt = new TextField();
+    Text qnt = new Text();
     @FXML
-    TextArea detail = new TextArea();
+    Text detail = new Text();
     Book tempbook = new Book();
 
     public void setdetail(Book tempbook){

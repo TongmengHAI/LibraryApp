@@ -131,7 +131,6 @@
                   <TableColumn fx:id="idColumn" editable="false" prefWidth="58.39999467134476" resizable="false" text="No." />
                   <TableColumn fx:id="booktitleColumn" editable="false" minWidth="1.600006103515625" prefWidth="192.0" resizable="false" text="Book Title" />
                   <TableColumn fx:id="studentnameColumn" editable="false" prefWidth="166.4000244140625" resizable="false" text="Student's name" />
-                  <TableColumn fx:id="qntColumn" editable="false" prefWidth="56.7999267578125" resizable="false" text="Quantity" />
                   <TableColumn fx:id="borrowdateColumn" editable="false" prefWidth="140.0" resizable="false" text="Borrow Date" />
                   <TableColumn fx:id="deadlineColumn" editable="false" prefWidth="114.39996337890625" resizable="false" text="Deadline" />
                   <TableColumn fx:id="returndateColumn" editable="false" prefWidth="148.800048828125" resizable="false" text="Return Date" />
