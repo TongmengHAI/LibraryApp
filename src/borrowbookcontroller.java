@@ -2,6 +2,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -125,22 +130,91 @@ public class borrowbookcontroller implements Initializable{
         int booki = Integer.parseInt(bookid.getText());bookid.clear();
         String borrowd = null;
         String returnd = null;
-        InsertData d = new InsertData();
-        try{
-            LocalDate bordate = borrowdate.getValue();borrowdate.setValue(null);
-            LocalDate redate = returndate.getValue();returndate.setValue(null);
-            borrowd = bordate.toString();
-            returnd = redate.toString();
-        }catch(Exception e){
-            alert.setText("Error");
+        // InsertData d = new InsertData();
+
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:myDbFile.db")) {
+                // String sql = "SELECT studentid,returndate FROM Borrowedbooks WHERE studentid like ? and returndate like ?";
+                String sql = "SELECT studentid,returndate FROM Borrowedbooks WHERE studentid like ? ";
+                
+                PreparedStatement pst = conn.prepareStatement(sql);
+                
+                pst.setString(1, "%" + studid + "%");
+                // pst1.setString(1, returnd );
+                ResultSet rs = pst.executeQuery();
+            
+                String str = rs.getString(1) ;
+
+                String str1 = rs.getString(2) ;
+                conn.close();
+
+                System.out.println(str1);
+               
+               
+                try{
+                        LocalDate bordate = borrowdate.getValue();borrowdate.setValue(null);
+                        LocalDate redate = returndate.getValue();returndate.setValue(null);
+                        borrowd = bordate.toString();
+                        returnd = redate.toString();
+                    }catch(Exception e){
+                        alert.setText("Error");
+                        e.printStackTrace();
+                    }
+               
+                if(str1 != null  ){
+                    if(str != null){
+                        InsertData d = new InsertData();
+                        try{
+                            d.insert3(studname,studid,gend,dep,y,bookt,booki,borrowd,returnd,image);
+                            alert.setText("Success");
+                            System.out.println("str");
+                            return;
+                            
+                        }catch(Exception e){
+                            e.printStackTrace();
+                        }
+                    }else{
+                        alert.setText("Return book first!");
+                    }
+                    
+                    
+                }else{
+                     alert.setText("Return book first!");
+                }
+                
+                if(str == null ){
+                    InsertData d = new InsertData();
+                    try{
+                        d.insert3(studname,studid,gend,dep,y,bookt,booki,borrowd,returnd,image);
+                        alert.setText("Success");
+                        System.out.println("str1");
+
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                    
+                }else{
+                     alert.setText("Return book first!");
+                }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        try{
-            d.insert3(studname,studid,gend,dep,y,bookt,booki,borrowd,returnd,image);
-            alert.setText("Success");
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+
+        // try{
+        //     LocalDate bordate = borrowdate.getValue();borrowdate.setValue(null);
+        //     LocalDate redate = returndate.getValue();returndate.setValue(null);
+        //     borrowd = bordate.toString();
+        //     returnd = redate.toString();
+        // }catch(Exception e){
+        //     alert.setText("Error");
+        //     e.printStackTrace();
+        // }
+        // try{
+        //     d.insert3(studname,studid,gend,dep,y,bookt,booki,borrowd,returnd,image);
+        //     alert.setText("Success");
+        // }catch(Exception e){
+        //     e.printStackTrace();
+        // }
     }
     public void returnbookbtn(ActionEvent event) throws IOException {
         LocalDate red = rd.getValue();
